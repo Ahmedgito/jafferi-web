@@ -1,5 +1,5 @@
 import { useState } from "react";
-import logo from "../../../assets/logo.PNG"; // Replace with your logo path
+import logo from "../../../assets/logo.png"; // Replace with your logo path
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
