@@ -1,0 +1,59 @@
+/* General Footer Styling */
+.footer {
+    position: relative;
+    background-color: #003505; /* Dark green background */
+    color: white;
+    padding: 3rem 1rem; /* 48px top/bottom, 16px left/right */
+    clip-path: polygon(100% 0, 0 30%, 0 100%, 100% 100%); /* Flip and increase slant */
+    overflow: hidden;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10rem; /* Spacing between sections */
+    max-width: 1200px;
+    margin: 5rem auto;
+}
+
+@media (min-width: 768px) {
+    .footer-content {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+/* Sections */
+.footer-section {
+    flex: 1;
+}
+
+.footer-logo {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.footer-description {
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+.footer-heading {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.footer-links,
+.footer-contact {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li,
+.footer-contact li {
+    margin-bottom: 0.5rem; /* 8px spacing */
+    font-size: 1rem;
+}
