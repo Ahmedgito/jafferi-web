@@ -9,7 +9,7 @@ const Header = () => {
   };
 
   return (
-    <nav className="bg-[#003505] p-4 fixed w-full top-0 left-0 z-10">
+    <nav className="bg-[#003505] p-4 fixed w-full top-0 left-0 ">
       <div className="flex justify-between items-center max-w-7xl mx-auto">
         {/* Logo */}
         <div>
@@ -18,10 +18,10 @@ const Header = () => {
 
         {/* Desktop Header */}
         <div className="hidden md:flex space-x-6">
-          <a href="/" className="text-white hover:text-gray-300">
+          <a href="/jafferi-web/" className="text-white hover:text-gray-300">
             Home
           </a>
-          <a href="/about" className="text-white hover:text-gray-300">
+          <a href="/jafferi-web/about" className="text-white hover:text-gray-300">
             Professional Network
           </a>
           <a href="#services" className="text-white hover:text-gray-300">
@@ -69,7 +69,7 @@ const Header = () => {
         <a href="/" className="block text-white py-2">
           Home
         </a>
-        <a href="/about" className="block text-white py-2">
+        <a href="/about " className="block text-white py-2">
           Professional Network
         </a>
         <a href="#services" className="block text-white py-2">
