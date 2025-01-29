@@ -23,7 +23,7 @@ const Header = () => {
           <a href="#services" className="text-white hover:text-gray-300">Medical Assistance</a>
           <a href="#contact" className="text-white hover:text-gray-300">Legal Assistance</a>
           <a href="#contact" className="text-white hover:text-gray-300">Contact Us</a>
-          <a href="#signin" className="text-white hover:text-gray-300">Sign In</a>
+          <a href="/jafferi-web/signin" className="text-white hover:text-gray-300">Sign In</a>
         </div>
 
         {/* Mobile Hamburger Button */}

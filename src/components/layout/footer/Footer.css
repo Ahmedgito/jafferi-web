@@ -65,7 +65,7 @@
 @media (max-width: 767px) {
     .footer {
         clip-path: none; /* Removes the slant on mobile */
-        padding: 2rem 1rem; /* Adjust padding for better spacing */
+        padding: 0rem 1rem; /* Adjust padding for better spacing */
     }
 
     .footer-content {
