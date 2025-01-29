@@ -18,12 +18,12 @@ const Header = () => {
 
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-6">
-          <a href="/jafferi-web/" className="text-white hover:text-gray-300">Home</a>
-          <a href="/jafferi-web/about" className="text-white hover:text-gray-300">Professional Network</a>
+          <a href="#/jafferi-web/" className="text-white hover:text-gray-300">Home</a>
+          <a href="#/jafferi-web/about" className="text-white hover:text-gray-300">Professional Network</a>
           <a href="#services" className="text-white hover:text-gray-300">Medical Assistance</a>
           <a href="#contact" className="text-white hover:text-gray-300">Legal Assistance</a>
           <a href="#contact" className="text-white hover:text-gray-300">Contact Us</a>
-          <a href="/jafferi-web/signin" className="text-white hover:text-gray-300">Sign In</a>
+          <a href="#/jafferi-web/signin" className="text-white hover:text-gray-300">Sign In</a>
         </div>
 
         {/* Mobile Hamburger Button */}
@@ -56,12 +56,12 @@ const Header = () => {
           </svg>
         </button>
 
-        <a href="/jafferi-web/" className="block text-white py-2" onClick={toggleMobileMenu}>Home</a>
-        <a href="/jafferi-web/about" className="block text-white py-2" onClick={toggleMobileMenu}>Professional Network</a>
+        <a href="#/jafferi-web/" className="block text-white py-2" onClick={toggleMobileMenu}>Home</a>
+        <a href="#/jafferi-web/about" className="block text-white py-2" onClick={toggleMobileMenu}>Professional Network</a>
         <a href="#services" className="block text-white py-2" onClick={toggleMobileMenu}>Medical Assistance</a>
         <a href="#contact" className="block text-white py-2" onClick={toggleMobileMenu}>Legal Assistance</a>
         <a href="#contact" className="block text-white py-2" onClick={toggleMobileMenu}>Contact Us</a>
-        <a href="#signin" className="block text-white py-2" onClick={toggleMobileMenu}>Sign In</a>
+        <a href="#/jafferi-web/signin" className="block text-white py-2" onClick={toggleMobileMenu}>Sign In</a>
       </div>
     </nav>
   );
