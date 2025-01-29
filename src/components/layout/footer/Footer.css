@@ -1,3 +1,4 @@
+
 /* General Footer Styling */
 .footer {
     position: relative;
@@ -6,6 +7,10 @@
     padding: 3rem 1rem; /* 48px top/bottom, 16px left/right */
     clip-path: polygon(100% 0, 0 30%, 0 100%, 100% 100%); /* Flip and increase slant */
     overflow: hidden;
+    width: 100%;
+    margin-top: 0;
+    height: auto; /* Let the footer grow based on its content */    
+    padding-bottom: 0;
 }
 
 .footer-content {
@@ -56,4 +61,14 @@
 .footer-contact li {
     margin-bottom: 0.5rem; /* 8px spacing */
     font-size: 1rem;
+}
+@media (max-width: 767px) {
+    .footer {
+        clip-path: none; /* Removes the slant on mobile */
+        padding: 2rem 1rem; /* Adjust padding for better spacing */
+    }
+
+    .footer-content {
+        gap: 2rem; /* Reduce gap for better spacing */
+    }
 }
