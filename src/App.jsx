@@ -10,9 +10,10 @@ function App() {
     <Router>  {/* Use HashRouter here */}
       <Layout>
         <Routes>
+          
+          <Route path="/jafferi-web/signin" element={<Signin />} />
           <Route path="/jafferi-web/" element={<Home />} />
           <Route path="/jafferi-web/about" element={<About />} />
-          <Route path="/jafferi-web/signin" element={<Signin />} />
           <Route path="/jafferi-web/signup" element={<Signup />} />
         </Routes>
       </Layout>

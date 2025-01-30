@@ -57,7 +57,7 @@ const Signin = () => {
   `}
           </style>
           {/* ONLY FOR STYLING ---- END ---------- */}
-      <h1 className='mt-10 mb-5 text-3xl font-bold font-sans ms-auto text-center text-[#003505]'>WELCOME TO OUR COMMUNITY</h1>
+          
       <div className="relative py-3 sm:max-w-xl sm:mx-auto">
         <div className="relative px-4 py-10 bg-white mx-8 md:mx-0 shadow rounded-3xl sm:p-10">
           <div className="max-w-md mx-auto">
