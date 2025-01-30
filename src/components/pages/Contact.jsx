@@ -2,9 +2,26 @@ import { Mail, MapPin, Phone } from "lucide-react";
 
 const ContactForm = () => {
   return (
-    <div className="flex flex-col md:flex-row items-center justify-center min-h-screen bg-gray-100 p-6">
+    <>
+    
+          {/* ONLY FOR STYLING ---- START ---------- */}
+
+          <div className="relative">
+              {/* Overlapping Div */}
+              <div className="absolute top-0 left-0 w-full h-40 bg-[#003505] clip-slant -z-10"></div>
+          </div>
+
+          <style>
+              {`
+  .clip-slant {
+    clip-path: polygon(0 0, 100% 0, 100% 40%, 0 100%);
+  }
+  `}
+          </style>
+          {/* ONLY FOR STYLING ---- END ---------- */}
+    <div className="flex flex-col md:flex-row items-center justify-center min-h-screen bg-transparent p-6 md:-mt-10 ">
       {/* Left Contact Info */}
-      <div className="bg-[#003505] text-white p-8 rounded-lg w-full md:w-1/3 shadow-lg relative">
+      <div className="bg-[#003505] text-white p-8 rounded-lg w-full md:w-1/3 shadow-lg relative border-2 border-white ">
         <h2 className="text-lg font-semibold mb-2">Contact Information</h2>
         <p className="text-sm mb-4">Say something to start a live chat!</p>
 
@@ -30,13 +47,13 @@ const ContactForm = () => {
       </div>
 
       {/* Right Form Section */}
-      <div className="bg-white p-8 rounded-lg w-full md:w-2/3 shadow-lg">
+      <div className="bg-white p-8 rounded-lg w-full md:w-2/3 shadow-2xl  ">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
             <label className="text-sm font-medium">First Name</label>
             <input
               type="text"
-              className="w-full border-b border-gray-300 focus:outline-none focus:border-gray-500 text-sm py-2"
+              className="w-full border-b border-gray-400 focus:outline-none focus:border-gray-500 text-sm py-2"
             />
           </div>
           <div>
@@ -101,6 +118,7 @@ const ContactForm = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
