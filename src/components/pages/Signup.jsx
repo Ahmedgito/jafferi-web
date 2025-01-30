@@ -8,6 +8,24 @@ const Form = () => {
 
   return (
     <>
+    
+          {/* ONLY FOR STYLING ---- START ---------- */}
+
+          <div className="relative">
+              {/* Overlapping Div */}
+              <div className="absolute top-0 left-0 w-full h-40 bg-[#003505] clip-slant -z-10"></div>
+          </div>
+
+          <style>
+              {`
+  .clip-slant {
+    clip-path: polygon(0 0, 100% 0, 100% 40%, 0 100%);
+  }
+  `}
+          </style>
+          {/* ONLY FOR STYLING ---- END ---------- */}
+
+
       <h1 className="font-bold text-5xl mt-3 mb-1 md:mt-8 md:mb-2 text-black text-center font-sans"></h1>
       <div className="relative py-3 sm:max-w-xl sm:mx-auto">
         <div className="relative px-4 py-10 bg-white mx-8 md:mx-0 shadow rounded-3xl sm:p-10">
