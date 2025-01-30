@@ -22,7 +22,7 @@ const Header = () => {
           <a href="#/jafferi-web/about" className="text-white hover:text-gray-300">Professional Network</a>
           <a href="#services" className="text-white hover:text-gray-300">Medical Assistance</a>
           <a href="#contact" className="text-white hover:text-gray-300">Legal Assistance</a>
-          <a href="#contact" className="text-white hover:text-gray-300">Contact Us</a>
+          <a href="#/jafferi-web/contact" className="text-white hover:text-gray-300">Contact Us</a>
           <a href="#/jafferi-web/signin" className="text-white hover:text-gray-300">Sign In</a>
         </div>
 
@@ -60,7 +60,7 @@ const Header = () => {
         <a href="#/jafferi-web/about" className="block text-white py-2" onClick={toggleMobileMenu}>Professional Network</a>
         <a href="#services" className="block text-white py-2" onClick={toggleMobileMenu}>Medical Assistance</a>
         <a href="#contact" className="block text-white py-2" onClick={toggleMobileMenu}>Legal Assistance</a>
-        <a href="#contact" className="block text-white py-2" onClick={toggleMobileMenu}>Contact Us</a>
+        <a href="#/jafferi-web/contact" className="block text-white py-2" onClick={toggleMobileMenu}>Contact Us</a>
         <a href="#/jafferi-web/signin" className="block text-white py-2" onClick={toggleMobileMenu}>Sign In</a>
       </div>
     </nav>
