@@ -1,6 +1,11 @@
+import { useNavigate } from 'react-router-dom';
 import phone from '../../../assets/image.png';
-
+import Homebutton from '../../Homebutton';
 const Section1 = () => {
+
+  
+  const navigate = useNavigate();
+
   return (
     <>
       {/* Overlapping Background */}
@@ -17,15 +22,15 @@ const Section1 = () => {
       </style>
 
       {/* Main Section */}
-      <div className="flex flex-col md:flex-row items-center justify-between min-h-[50vh]  text-white px-8 md:px-20 py-4">
+      <div className="flex flex-col md:flex-row items-center justify-between min-h-[50vh]  text-white px-8 md:px-40 py-4  ">
         {/* Left Content */}
-        <div className="md:w-1/2">
+        <div className=" md:w-1/2">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Mission</h2>
           <p className="text-lg mb-6">
             The mission of Jaferi Alliance is to provide a platform to encourage professional collaboration between members of the Jaferia community. It’s a platform for Shia Muslims to connect and share resources which would benefit the members of the community in continuous growth.
           </p>
-          <button className="px-6 py-2 border-2 border-[#003505] mb-5 bg-white text-black rounded-md hover:bg-gray-200 transition">
-            Join our Network
+          <button onClick={() => navigate("/signup")} className="">
+            <Homebutton />
           </button>
         </div>
 
