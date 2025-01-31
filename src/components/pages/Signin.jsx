@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 
 const Signin = () => {
-
   const navigate = useNavigate();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const [errors, setErrors] = useState({ email: '', password: '' });
 
   const validateForm = () => {
@@ -20,7 +20,7 @@ const Signin = () => {
       valid = false;
     }
 
-    // Password validation (example: length > 6)
+    // Password validation
     if (!password || password.length < 6) {
       errors.password = 'Password must be at least 6 characters long';
       valid = false;
@@ -42,22 +42,18 @@ const Signin = () => {
 
   return (
     <>
-              {/* ONLY FOR STYLING ---- START ---------- */}
-
-              <div className="relative">
-              {/* Overlapping Div */}
-              <div className="absolute top-0 left-0 w-full h-40 bg-[#003505] clip-slant -z-10"></div>
-          </div>
-
-          <style>
-              {`
-  .clip-slant {
-    clip-path: polygon(0 0, 100% 0, 100% 40%, 0 100%);
-  }
-  `}
-          </style>
-          {/* ONLY FOR STYLING ---- END ---------- */}
-          
+      {/* Styling Section */}
+      <div className="relative">
+        <div className="absolute top-0 left-0 w-full h-40 bg-[#003505] clip-slant -z-10"></div>
+      </div>
+      <style>
+        {`
+          .clip-slant {
+            clip-path: polygon(0 0, 100% 0, 100% 40%, 0 100%);
+          }
+        `}
+      </style>
+      
       <div className="relative py-3 sm:max-w-xl sm:mx-auto">
         <div className="relative px-4 py-10 bg-white mx-8 md:mx-0 shadow rounded-3xl sm:p-10">
           <div className="max-w-md mx-auto">
@@ -77,22 +73,37 @@ const Signin = () => {
 
               <label className="font-semibold text-sm text-gray-600 pb-1 block" htmlFor="password">Password</label>
               <input
-                className="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full"
-                type="password"
+                className="border rounded-lg px-3 py-2 mt-1 mb-2 text-sm w-full"
+                type={showPassword ? "text" : "password"}
                 id="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
               {errors.password && <p className="text-red-500 text-xs">{errors.password}</p>}
+
+              {/* Show Password Toggle */}
+              <div className="flex items-center mt-1">
+                <input
+                  type="checkbox"
+                  id="showPassword"
+                  className="mr-2 cursor-pointer"
+                  checked={showPassword}
+                  onChange={() => setShowPassword(!showPassword)}
+                />
+                <label htmlFor="showPassword" className="text-sm text-gray-600 cursor-pointer">Show Password</label>
+              </div>
             </div>
+            
             <div className="text-right mb-4">
-              <a className="text-xs font-display font-semibold text-gray-500 hover:text-gray-600 cursor-pointer" href="#">
+              <a className="text-xs font-semibold text-gray-500 hover:text-gray-600 cursor-pointer" href="#">
                 Forgot Password?
               </a>
             </div>
-            <div className="flex justify-center w-full items-center">
+
+            {/* Google Sign-in Button */}
+            <div className="flex justify-center w-full items-center mb-4">
               <button
-                className="flex items-center justify-center py-2 px-20 bg-white hover:bg-gray-200 focus:ring-blue-500 focus:ring-offset-blue-200 text-gray-700 w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg"
+                className="flex items-center justify-center py-2 px-10 md:px-20 bg-white hover:bg-gray-200 text-gray-700 w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg"
                 type="button"
               >
                 <svg viewBox="0 0 24 24" height={25} width={25} xmlns="http://www.w3.org/2000/svg">
@@ -104,21 +115,17 @@ const Signin = () => {
                 <span className="ml-2">Sign in with Google</span>
               </button>
             </div>
-            <div className="mt-5">
-              <button
-                onClick={handleSubmit}
-                className="py-2 px-4 bg-blue-600 hover:bg-blue-700 focus:ring-blue-500 focus:ring-offset-blue-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg" type="submit">
-                Log in
-              </button>
-            </div>
-            <div className="flex items-center justify-between mt-4">
-              <span className="w-1/5 border-b dark:border-gray-600 md:w-1/4" />
-              <button
-                onClick={() => navigate("/jafferi-web/signup")}
-                className="text-xs text-gray-500 uppercase dark:text-gray-900 font-bold hover:underline">
+
+            {/* Login Button */}
+            <button onClick={handleSubmit} className="py-2 px-4 bg-[#003505] hover:bg-green-800 text-white w-full rounded-lg font-semibold">
+              Log in
+            </button>
+
+            {/* Signup Link */}
+            <div className="flex justify-center mt-4">
+              <button onClick={() => navigate("/jafferi-web/signup")} className="text-xs text-gray-500 font-bold hover:underline">
                 or sign up
               </button>
-              <span className="w-1/5 border-b dark:border-gray-400 md:w-1/4" />
             </div>
           </div>
         </div>
