@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import phone from '../../../assets/image.png';
-import Homebutton from '../../Homebutton';
+import Homebutton from '../uicomponents/Homebutton';
+
 const Section1 = () => {
 
   
