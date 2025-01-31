@@ -1,21 +1,28 @@
-import { HashRouter as Router, Route, Routes } from "react-router-dom";  // Change here to HashRouter
+import { HashRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 import Layout from "./components/layout/Layout";
 import Home from "./components/pages/home/Home";
 import About from "./components/pages/About";
 import Signin from "./components/pages/Signin";
-import Signup from "./components/pages/Signup" ;
+import Signup from "./components/pages/Signup";
 import Contact from "./components/pages/Contact";
 
 function App() {
   return (
-    <Router>  {/* Use HashRouter here */}
+    <Router>
       <Layout>
         <Routes>
-          <Route path="/jafferi-web/" element={<Home />} />
-          <Route path="/jafferi-web/about" element={<About />} />
-          <Route path="/jafferi-web/signup" element={<Signup />} />
-          <Route path="/jafferi-web/signin" element={<Signin />} />
-          <Route path="/jafferi-web/contact" element={<Contact />} />
+          {/* Default Home Route */}
+          <Route path="/" element={<Home />} />
+
+          {/* Other Pages */}
+          <Route path="/about" element={<About />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/signin" element={<Signin />} />
+          <Route path="/contact" element={<Contact />} />
+
+          {/* Redirect unknown routes to Home */}
+          <Route path="*" element={<Navigate to="/" />} />
+        
         </Routes>
       </Layout>
     </Router>

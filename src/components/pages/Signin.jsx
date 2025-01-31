@@ -123,7 +123,7 @@ const Signin = () => {
 
             {/* Signup Link */}
             <div className="flex justify-center mt-4">
-              <button onClick={() => navigate("/jafferi-web/signup")} className="text-xs text-gray-500 font-bold hover:underline">
+              <button onClick={() => navigate("/signup")} className="text-xs text-gray-500 font-bold hover:underline">
                 or sign up
               </button>
             </div>

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import logo from "../../../assets/logo.png"; // Replace with your logo path
 
 const Header = () => {
@@ -9,21 +10,22 @@ const Header = () => {
   };
 
   return (
-    <nav className="bg-[#003505] p-4 fixed w-full top-0 left-0 z-50 ">
+    <nav className="bg-[#003505] p-4 fixed w-full top-0 left-0 z-50">
       <div className="flex justify-between items-center max-w-7xl mx-auto">
         {/* Logo */}
         <div>
-          <img src={logo} alt="Logo" className="h-20 w-32" />
+          <Link to="/">
+            <img src={logo} alt="Logo" className="h-20 w-32" />
+          </Link>
         </div>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-6">
-          <a href="#/jafferi-web/" className="text-white hover:text-gray-300">Home</a>
-          <a href="#/jafferi-web/about" className="text-white hover:text-gray-300">Professional Network</a>
-          <a href="#services" className="text-white hover:text-gray-300">Medical Assistance</a>
-          <a href="#contact" className="text-white hover:text-gray-300">Legal Assistance</a>
-          <a href="#/jafferi-web/contact" className="text-white hover:text-gray-300">Contact Us</a>
-          <a href="#/jafferi-web/signin" className="text-white hover:text-gray-300">Sign In</a>
+          <Link to="/" className="text-white hover:text-gray-300">Home</Link>
+          <Link to="/about" className="text-white hover:text-gray-300">Professional Network</Link>
+          <Link to="/contact" className="text-white hover:text-gray-300">Legal Assistance</Link>
+          <Link to="/contact" className="text-white hover:text-gray-300">Contact Us</Link>
+          <Link to="/signin" className="text-white hover:text-gray-300">Sign In</Link>
         </div>
 
         {/* Mobile Hamburger Button */}
@@ -56,12 +58,11 @@ const Header = () => {
           </svg>
         </button>
 
-        <a href="#/jafferi-web/" className="block text-white py-2" onClick={toggleMobileMenu}>Home</a>
-        <a href="#/jafferi-web/about" className="block text-white py-2" onClick={toggleMobileMenu}>Professional Network</a>
-        <a href="#services" className="block text-white py-2" onClick={toggleMobileMenu}>Medical Assistance</a>
-        <a href="#contact" className="block text-white py-2" onClick={toggleMobileMenu}>Legal Assistance</a>
-        <a href="#/jafferi-web/contact" className="block text-white py-2" onClick={toggleMobileMenu}>Contact Us</a>
-        <a href="#/jafferi-web/signin" className="block text-white py-2" onClick={toggleMobileMenu}>Sign In</a>
+        <Link to="/" className="block text-white py-2" onClick={toggleMobileMenu}>Home</Link>
+        <Link to="/about" className="block text-white py-2" onClick={toggleMobileMenu}>Professional Network</Link>
+        <Link to="/contact" className="block text-white py-2" onClick={toggleMobileMenu}>Legal Assistance</Link>
+        <Link to="/contact" className="block text-white py-2" onClick={toggleMobileMenu}>Contact Us</Link>
+        <Link to="/signin" className="block text-white py-2" onClick={toggleMobileMenu}>Sign In</Link>
       </div>
     </nav>
   );
