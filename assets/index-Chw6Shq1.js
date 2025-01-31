@@ -156,7 +156,7 @@ Please change the parent <Route path="${$}"> to <Route path="${$==="/"?"*":`${$}
     background: #003505;
     padding: 5px;
     overflow: hidden;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 20px 0px;
+    box-shadow: #003505 0px 7px 20px 0px;
     transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   }
 
@@ -181,7 +181,7 @@ Please change the parent <Route path="${$}"> to <Route path="${$==="/"?"*":`${$}
     background: #003505;
     position: relative;
     transform: skew(-40deg);
-    box-shadow: -10px -10px 0 0 #1b233d;
+    box-shadow: -10px -10px 0 0 #003505;
   }
 
   .card .top-section .border::before {
@@ -193,7 +193,7 @@ Please change the parent <Route path="${$}"> to <Route path="${$==="/"?"*":`${$}
     right: -15px;
     background: rgba(255, 255, 255, 0);
     border-top-left-radius: 10px;
-    box-shadow: -5px -5px 0 2px #1b233d;
+    box-shadow: -5px -5px 0 2px #003505;
   }
 
   .card .top-section::before {
@@ -205,7 +205,7 @@ Please change the parent <Route path="${$}"> to <Route path="${$==="/"?"*":`${$}
     height: 15px;
     width: 15px;
     border-top-left-radius: 15px;
-    box-shadow: -5px -5px 0 2px #1b233d;
+    box-shadow: -5px -5px 0 2px #003505;
   }
 
   .card .top-section .icons {
@@ -238,7 +238,7 @@ Please change the parent <Route path="${$}"> to <Route path="${$==="/"?"*":`${$}
   }
 
   .card .top-section .icons .social-media .icon:hover {
-    color: white;
+    color: black;
   }
 
   .card .bottom-section {
