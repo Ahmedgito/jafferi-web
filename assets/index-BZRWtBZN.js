@@ -239,6 +239,8 @@ Please change the parent <Route path="${$}"> to <Route path="${$==="/"?"*":`${$}
 
   .card .top-section .icons .social-media .icon:hover {
     color: black;
+    transition: color 0.3s ease;
+    cursor: pointer;
   }
 
   .card .bottom-section {
@@ -254,7 +256,7 @@ Please change the parent <Route path="${$}"> to <Route path="${$==="/"?"*":`${$}
     text-align: center;
     letter-spacing: 2px;
   }
-`,Og=()=>p.jsx("section",{className:"py-10 bg-transparent",children:p.jsxs("div",{className:"container mx-auto px-4",children:[p.jsx("h2",{className:"text-white text-2xl font-bold text-center mb-6",children:"Our Features"}),p.jsxs("div",{className:"grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-center",children:[p.jsx(Pi,{}),p.jsx(Pi,{}),p.jsx(Pi,{}),p.jsx(Pi,{})]})]})}),Fg=()=>p.jsxs(p.Fragment,{children:[p.jsx(Tg,{}),p.jsx(Og,{})]}),Mg=()=>p.jsxs("div",{className:"p-4 ",children:[p.jsx("h2",{className:"text-2xl text-red-600 font-bold",children:"About Us"}),p.jsx("p",{children:"This is the about page of the website."})]}),Dg=()=>{const l=fl(),[u,s]=j.useState(""),[c,f]=j.useState(""),[d,g]=j.useState(!1),[S,y]=j.useState({email:"",password:""}),w=()=>{let _=!0,N={email:"",password:""};return(!u||!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(u))&&(N.email="Please enter a valid email address",_=!1),(!c||c.length<6)&&(N.password="Password must be at least 6 characters long",_=!1),y(N),_},P=_=>{_.preventDefault(),w()?console.log("Form is valid"):console.log("Form has errors")};return p.jsxs(p.Fragment,{children:[p.jsx("div",{className:"relative",children:p.jsx("div",{className:"absolute top-0 left-0 w-full h-40 bg-[#003505] clip-slant -z-10"})}),p.jsx("style",{children:`
+`,Og=()=>p.jsx("section",{className:"py-10 bg-transparent",children:p.jsxs("div",{className:"container mx-auto md:px-4",children:[p.jsx("h2",{className:"text-white text-2xl font-bold text-center mb-6",children:"Our Features"}),p.jsxs("div",{className:"grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-center place-items-center",children:[p.jsx(Pi,{}),p.jsx(Pi,{}),p.jsx(Pi,{}),p.jsx(Pi,{})]})]})}),Fg=()=>p.jsxs(p.Fragment,{children:[p.jsx(Tg,{}),p.jsx(Og,{})]}),Mg=()=>p.jsxs("div",{className:"p-4 ",children:[p.jsx("h2",{className:"text-2xl text-red-600 font-bold",children:"About Us"}),p.jsx("p",{children:"This is the about page of the website."})]}),Dg=()=>{const l=fl(),[u,s]=j.useState(""),[c,f]=j.useState(""),[d,g]=j.useState(!1),[S,y]=j.useState({email:"",password:""}),w=()=>{let _=!0,N={email:"",password:""};return(!u||!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(u))&&(N.email="Please enter a valid email address",_=!1),(!c||c.length<6)&&(N.password="Password must be at least 6 characters long",_=!1),y(N),_},P=_=>{_.preventDefault(),w()?console.log("Form is valid"):console.log("Form has errors")};return p.jsxs(p.Fragment,{children:[p.jsx("div",{className:"relative",children:p.jsx("div",{className:"absolute top-0 left-0 w-full h-40 bg-[#003505] clip-slant -z-10"})}),p.jsx("style",{children:`
           .clip-slant {
             clip-path: polygon(0 0, 100% 0, 100% 40%, 0 100%);
           }
