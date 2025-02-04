@@ -5,12 +5,10 @@ import Section2 from "./Section2";
 
 const Home = () => {
   return (
- <>
- 
-    <Section1/>
-    <Section2 />
- 
- </>
+        <>
+            <Section1/>
+            <Section2 />
+        </>
   );
 };
 

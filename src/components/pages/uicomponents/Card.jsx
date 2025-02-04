@@ -117,6 +117,8 @@ const StyledWrapper = styled.div`
 
   .card .top-section .icons .social-media .icon:hover {
     color: black;
+    transition: color 0.3s ease;
+    cursor: pointer;
   }
 
   .card .bottom-section {
