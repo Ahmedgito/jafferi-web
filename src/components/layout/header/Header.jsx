@@ -22,8 +22,8 @@ const Header = () => {
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-6">
           <Link to="/" className="text-white hover:text-gray-300">Home</Link>
-          <Link to="/about" className="text-white hover:text-gray-300">Professional Network</Link>
-          <Link to="/contact" className="text-white hover:text-gray-300">Legal Assistance</Link>
+          <Link to="/professionalnetwork" className="text-white hover:text-gray-300">Professional Network</Link>
+          <Link to="/" className="text-white hover:text-gray-300">Legal Assistance</Link>
           <Link to="/contact" className="text-white hover:text-gray-300">Contact Us</Link>
           <Link to="/signin" className="text-white hover:text-gray-300">Sign In</Link>
         </div>

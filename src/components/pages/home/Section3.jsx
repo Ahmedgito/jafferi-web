@@ -4,21 +4,21 @@ import React from "react";
 const  NewsEvents = () => {
     const articles = [
         {
-            img: "https://via.placeholder.com/400x250", 
+            img: "https://placehold.co/400x250", 
             title: "Lorum Ipsum is Dumy text which you can see",
             date: "19 Aug, 2021",
             comments: "3 comments",
             description: "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC."
         },
         {
-            img: "https://via.placeholder.com/400x250",
+            img: "https://placehold.co/400x250",
             title: "Lorum Ipsum is Dumy text which you can see",
             date: "19 Aug, 2021",
             comments: "3 comments",
             description: "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC."
         },
         {
-            img: "https://via.placeholder.com/400x250",
+            img: "https://placehold.co/400x250",
             title: "Lorum Ipsum is Dumy text which you can see",
             date: "19 Aug, 2021",
             comments: "3 comments",

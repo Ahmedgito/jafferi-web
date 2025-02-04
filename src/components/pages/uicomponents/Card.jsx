@@ -10,7 +10,6 @@ const Card = () => {
           <div className="border" />
           <div className="icons">
             <div className="logo">
-              <p className='font-sans font-bold text-white'>TITLE</p>
             </div>
             <div className="social-media">
               <Mail className="icon" fill="white" />
