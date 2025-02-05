@@ -59,7 +59,7 @@ const Header = () => {
         </button>
 
         <Link to="/" className="block text-white py-2" onClick={toggleMobileMenu}>Home</Link>
-        <Link to="/about" className="block text-white py-2" onClick={toggleMobileMenu}>Professional Network</Link>
+        <Link to="/professionalnetwork" className="block text-white py-2" onClick={toggleMobileMenu}>Professional Network</Link>
         <Link to="/contact" className="block text-white py-2" onClick={toggleMobileMenu}>Legal Assistance</Link>
         <Link to="/contact" className="block text-white py-2" onClick={toggleMobileMenu}>Contact Us</Link>
         <Link to="/signin" className="block text-white py-2" onClick={toggleMobileMenu}>Sign In</Link>
