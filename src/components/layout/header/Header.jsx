@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import logo from "../../../assets/logo.png"; // Replace with your logo path
+import logo from "../../../assets/logo.png";
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -23,7 +23,8 @@ const Header = () => {
         <div className="hidden md:flex space-x-6">
           <Link to="/" className="text-white hover:text-gray-300">Home</Link>
           <Link to="/professionalnetwork" className="text-white hover:text-gray-300">Professional Network</Link>
-          <Link to="/" className="text-white hover:text-gray-300">Legal Assistance</Link>
+          <Link to="/virtualclinic" className=" text-white hover:text-gray-300" >Virtual Clinic</Link>
+          <Link to="/legalassistance" className="text-white hover:text-gray-300">Legal Assistance</Link>
           <Link to="/contact" className="text-white hover:text-gray-300">Contact Us</Link>
           <Link to="/signin" className="text-white hover:text-gray-300">Sign In</Link>
         </div>
@@ -60,7 +61,8 @@ const Header = () => {
 
         <Link to="/" className="block text-white py-2" onClick={toggleMobileMenu}>Home</Link>
         <Link to="/professionalnetwork" className="block text-white py-2" onClick={toggleMobileMenu}>Professional Network</Link>
-        <Link to="/contact" className="block text-white py-2" onClick={toggleMobileMenu}>Legal Assistance</Link>
+        <Link to="/virtualclinic" className="block text-white py-2" onClick={toggleMobileMenu}>Virtual Clinic</Link>
+        <Link to="/legalassistance" className="block text-white py-2" onClick={toggleMobileMenu}>Legal Assistance</Link>
         <Link to="/contact" className="block text-white py-2" onClick={toggleMobileMenu}>Contact Us</Link>
         <Link to="/signin" className="block text-white py-2" onClick={toggleMobileMenu}>Sign In</Link>
       </div>

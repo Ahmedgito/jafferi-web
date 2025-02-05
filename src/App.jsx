@@ -5,6 +5,8 @@ import Pnet from "./components/pages/professional network/Pnet" ;
 import Signin from "./components/pages/signin/Signin";
 import Signup from "./components/pages/signup/Signup";
 import Contact from "./components/pages/contact/Contact";
+import Legalass from "./components/pages/legal assistance/legalass";
+import VirtualClinic from "./components/pages/virtual clinic/virtualclinic";
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
 
           {/* Other Pages */}
           <Route path="/professionalnetwork" element={<Pnet />} />
+          <Route path="/legalassistance" element={<Legalass />} />
+          <Route path="/virtualclinic" element={<VirtualClinic/>} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/signin" element={<Signin />} />
           <Route path="/contact" element={<Contact />} />
