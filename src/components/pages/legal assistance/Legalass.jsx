@@ -25,7 +25,7 @@ const Legalass = () => {
 
       {/* Main Container */}
       <div className="w-full flex justify-center py-10 px-4">
-        <div className="w-full max-w-2xl bg-white rounded-lg shadow-lg overflow-hidden border-2 border-[#003505]">
+        <div className="w-full max-w-4xl bg-white rounded-lg shadow-lg overflow-hidden border-2 border-[#003505]">
           <h2 className="text-2xl font-bold text-center text-black py-4">Legal Assistance</h2>
 
           {/* Scrollable Table for Large Screens */}
@@ -33,16 +33,16 @@ const Legalass = () => {
             <table className="w-full border-collapse">
               <thead className="sticky top-0 bg-gray-100 z-10">
                 <tr>
-                  <th className="text-left p-3 text-black font-semibold">Username</th>
-                  <th className="text-left p-3 text-black font-semibold">Email</th>
+                  <th className="text-center p-3 text-black font-semibold">Username</th>
+                  <th className="text-center p-3 text-black font-semibold">Email</th>
                   <th className="p-3 text-black font-semibold"></th>
                 </tr>
               </thead>
               <tbody>
                 {users.map((user, index) => (
                   <tr key={index} className="border-t border-gray-200">
-                    <td className="p-3 text-gray-800">{user.name}</td>
-                    <td className="p-3 text-gray-800">{user.email}</td>
+                    <td className="p-3 text-gray-800 text-center">{user.name}</td>
+                    <td className="p-3 text-gray-800 text-center">{user.email}</td>
                     <td className="p-3 text-right">
                       <PButton />
                     </td>
