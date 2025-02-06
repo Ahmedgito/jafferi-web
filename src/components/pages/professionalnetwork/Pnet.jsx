@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import PButton from "../uicomponents/PButton";
-import ContactForm from "../uicomponents/Form"; // Import ContactForm
+import ContactForm from "../uicomponents/PForm"; // Import ContactForm
 
 const ProfessionalNetwork = () => {
   const [selectedUser, setSelectedUser] = useState(null); // Stores selected user

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import PButton from "../uicomponents/PButton";
-import ContactForm from "../uicomponents/Form"; // Import Contact Form
+import ContactForm from "../uicomponents/LForm"; // Import Contact Form
 
 const Legalass = () => {
   const [selectedUser, setSelectedUser] = useState(null); // Stores selected user
@@ -28,6 +28,11 @@ const Legalass = () => {
       <div className="w-full flex justify-center py-10 px-4">
         <div className="w-full max-w-4xl bg-white rounded-lg shadow-lg overflow-hidden border-2 border-[#003505]">
           <h2 className="text-2xl font-bold text-center text-black py-4">Legal Assistance</h2>
+          <p className="text-sm font-bold text-left ms-2 text-gray-700 py-4"><span className="text-red-500">Disclaimer : </span>
+Submitting this form does not establish an attorney-client relationship. The information provided
+is for preliminary review purposes only and does not guarantee legal representation. Please
+avoid sharing sensitive or confidential details unless explicitly requested by a legal professional
+who you have verified.</p>
 
           {/* Scrollable Table for Large Screens */}
           <div className="hidden sm:block max-h-[400px] overflow-y-auto">

@@ -1,6 +1,6 @@
 import React from "react";
 
-const ContactForm = ({ user, onClose }) => {
+const PContactForm = ({ user, onClose }) => {
   return (
     <div className="fixed inset-0 backdrop-blur-sm bg-transparent bg-opacity-10 flex justify-center items-center z-50">
       <div className="bg-white w-full max-w-md p-6 rounded-lg shadow-lg">
@@ -32,4 +32,4 @@ const ContactForm = ({ user, onClose }) => {
   );
 };
 
-export default ContactForm;
+export default PContactForm;
