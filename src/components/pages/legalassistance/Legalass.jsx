@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import PButton from "../uicomponents/PButton";
+import ContactForm from "../uicomponents/Form"; // Import Contact Form
 
 const Legalass = () => {
+  const [selectedUser, setSelectedUser] = useState(null); // Stores selected user
+
   // Example data (replace with API data)
   const users = Array.from({ length: 20 }, (_, i) => ({
     name: `User ${i + 1}`,
@@ -16,11 +19,9 @@ const Legalass = () => {
       </div>
 
       <style>
-        {`
-          .clip-slant {
-            clip-path: polygon(0 0, 100% 0, 100% 40%, 0 100%);
-          }
-        `}
+        {`.clip-slant {
+          clip-path: polygon(0 0, 100% 0, 100% 40%, 0 100%);
+        }`}
       </style>
 
       {/* Main Container */}
@@ -44,7 +45,9 @@ const Legalass = () => {
                     <td className="p-3 text-gray-800 text-center">{user.name}</td>
                     <td className="p-3 text-gray-800 text-center">{user.email}</td>
                     <td className="p-3 text-right">
-                      <PButton />
+                      <button onClick={() => setSelectedUser(user)}>
+                        <PButton />
+                      </button>
                     </td>
                   </tr>
                 ))}
@@ -59,13 +62,18 @@ const Legalass = () => {
                 <p className="text-lg font-semibold text-gray-800">{user.name}</p>
                 <p className="text-gray-600">{user.email}</p>
                 <div className="mt-2">
-                  <PButton />
+                  <button onClick={() => setSelectedUser(user)}>
+                    <PButton />
+                  </button>
                 </div>
               </div>
             ))}
           </div>
         </div>
       </div>
+
+      {/* Contact Form Modal */}
+      {selectedUser && <ContactForm user={selectedUser} onClose={() => setSelectedUser(null)} />}
     </>
   );
 };

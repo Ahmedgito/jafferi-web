@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import PButton from "../uicomponents/PButton";
+import ContactForm from "../uicomponents/Form"; // Import Contact Form
 
 const VirtualClinic = () => {
+  const [selectedUser, setSelectedUser] = useState(null); // Stores selected user
+
   // Example data (replace with API data)
   const users = Array.from({ length: 20 }, (_, i) => ({
     name: `User ${i + 1}`,
@@ -16,11 +19,9 @@ const VirtualClinic = () => {
       </div>
 
       <style>
-        {`
-          .clip-slant {
-            clip-path: polygon(0 0, 100% 0, 100% 40%, 0 100%);
-          }
-        `}
+        {`.clip-slant {
+          clip-path: polygon(0 0, 100% 0, 100% 40%, 0 100%);
+        }`}
       </style>
 
       {/* Main Container */}
@@ -43,8 +44,10 @@ const VirtualClinic = () => {
                   <tr key={index} className="border-t border-gray-200">
                     <td className="p-3 text-gray-800 text-center">{user.name}</td>
                     <td className="p-3 text-gray-800 text-center">{user.email}</td>
-                    <td className="p-3 text-end">
-                      <PButton />
+                    <td className="p-3 text-center">
+                      <button onClick={() => setSelectedUser(user)} className="">
+                        <PButton />
+                      </button>
                     </td>
                   </tr>
                 ))}
@@ -58,14 +61,19 @@ const VirtualClinic = () => {
               <div key={index} className="bg-gray-100 p-4 rounded-lg shadow flex flex-col items-center gap-2">
                 <p className="text-lg font-semibold text-gray-800">{user.name}</p>
                 <p className="text-gray-600">{user.email}</p>
-                <div className="mt-2">
-                  <PButton />
+                <div className="mt-2 ">
+                  <button onClick={() => setSelectedUser(user)}>
+                    <PButton />
+                  </button>
                 </div>
               </div>
             ))}
           </div>
         </div>
       </div>
+
+      {/* Contact Form Modal */}
+      {selectedUser && <ContactForm user={selectedUser} onClose={() => setSelectedUser(null)} />}
     </>
   );
 };
