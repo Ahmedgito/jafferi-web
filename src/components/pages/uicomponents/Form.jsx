@@ -2,7 +2,7 @@ import React from "react";
 
 const ContactForm = ({ user, onClose }) => {
   return (
-    <div className="fixed inset-0 bg-transparent bg-opacity-50 flex justify-center items-center z-50">
+    <div className="fixed inset-0 backdrop-blur-sm bg-transparent bg-opacity-10 flex justify-center items-center z-50">
       <div className="bg-white w-full max-w-md p-6 rounded-lg shadow-lg">
         <h2 className="text-xl font-bold text-center text-black">Contact {user.name}</h2>
         
