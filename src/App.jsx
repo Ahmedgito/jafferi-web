@@ -5,7 +5,7 @@ import Pnet from "./components/pages/professionalnetwork/Pnet" ;
 import Signin from "./components/pages/signin/Signin";
 import Signup from "./components/pages/signup/Signup";
 import Contact from "./components/pages/contact/Contact";
-import Legalass from "./components/pages/legalassistance/legalass";
+import Legalass from "./components/pages/legalassistance/Legalass";
 import VirtualClinic from "./components/pages/virtualclinic/virtualclinic";
 
 function App() {
