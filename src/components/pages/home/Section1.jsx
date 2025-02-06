@@ -26,7 +26,7 @@ const Section1 = () => {
       <div className="flex flex-col md:flex-row items-center justify-between min-h-[50vh]  text-white px-8 md:px-40 py-4  ">
         {/* Left Content */}
         <div className=" md:w-1/2">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Mission</h2>
+          <h2 className="text-3xl md:text-5xl font-bold mb-4">Our Mission</h2>
           <p className="text-lg mb-6">
             The mission of Jaferi Alliance is to provide a platform to encourage professional collaboration between members of the Jaferia community. It’s a platform for Shia Muslims to connect and share resources which would benefit the members of the community in continuous growth.
           </p>
