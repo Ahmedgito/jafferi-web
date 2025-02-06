@@ -1,12 +1,12 @@
 import { HashRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 import Layout from "./components/layout/Layout";
 import Home from "./components/pages/home/Home";
-import Pnet from "./components/pages/professional network/Pnet" ;
+import Pnet from "./components/pages/professionalnetwork/Pnet" ;
 import Signin from "./components/pages/signin/Signin";
 import Signup from "./components/pages/signup/Signup";
 import Contact from "./components/pages/contact/Contact";
-import Legalass from "./components/pages/legal assistance/legalass";
-import VirtualClinic from "./components/pages/virtual clinic/virtualclinic";
+import Legalass from "./components/pages/legalassistance/legalass";
+import VirtualClinic from "./components/pages/virtualclinic/virtualclinic";
 
 function App() {
   return (
