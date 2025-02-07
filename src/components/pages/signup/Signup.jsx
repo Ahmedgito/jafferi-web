@@ -193,7 +193,7 @@ const Form = () => {
               <span className="w-1/5 border-b dark:border-gray-600 md:w-1/4" />
               <a
                 className="text-xs text-gray-500 uppercase font-bold dark:text-gray-800 cursor-pointer hover:underline"
-                onClick={() => navigate("/jafferi-web/signin")}
+                onClick={() => navigate("/signin")}
               >
                 Have an account? Log in
               </a>

@@ -22,6 +22,7 @@ const Header = () => {
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-6">
           <Link to="/" className="text-white hover:text-gray-300">Home</Link>
+          <Link to="/businessnetwork" className="text-white hover:text-gray-300">Business Network</Link>
           <Link to="/professionalnetwork" className="text-white hover:text-gray-300">Professional Network</Link>
           <Link to="/virtualclinic" className=" text-white hover:text-gray-300" >Virtual Clinic</Link>
           <Link to="/legalassistance" className="text-white hover:text-gray-300">Legal Assistance</Link>
@@ -60,6 +61,7 @@ const Header = () => {
         </button>
 
         <Link to="/" className="block text-white py-2" onClick={toggleMobileMenu}>Home</Link>
+        <Link to="/businessnetwork" className="block text-white py-2" onClick={toggleMobileMenu}>Business Network</Link>
         <Link to="/professionalnetwork" className="block text-white py-2" onClick={toggleMobileMenu}>Professional Network</Link>
         <Link to="/virtualclinic" className="block text-white py-2" onClick={toggleMobileMenu}>Virtual Clinic</Link>
         <Link to="/legalassistance" className="block text-white py-2" onClick={toggleMobileMenu}>Legal Assistance</Link>
