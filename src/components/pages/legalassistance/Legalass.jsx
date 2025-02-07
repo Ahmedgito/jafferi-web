@@ -7,7 +7,7 @@ const Legalass = () => {
 
   // Example data (replace with API data)
   const users = Array.from({ length: 20 }, (_, i) => ({
-    name: `User ${i + 1}`,
+    name: `Name ${i + 1}`,
     email: `user${i + 1}@gmail.com`,
   }));
 
@@ -15,7 +15,7 @@ const Legalass = () => {
     <>
       {/* Background Slant Styling */}
       <div className="relative">
-        <div className="absolute top-0 left-0 w-full h-40 bg-[#003505] clip-slant -z-10"></div>
+        <div className="absolute top-0 left-0 w-full h-80 bg-[#003505] clip-slant -z-10"></div>
       </div>
 
       <style>
@@ -25,7 +25,7 @@ const Legalass = () => {
       </style>
 
       {/* Main Container */}
-      <div className="w-full flex justify-center py-10 px-4">
+      <div className="w-full flex justify-center py-14 px-4">
         <div className="w-full max-w-4xl bg-white rounded-lg shadow-lg overflow-hidden border-2 border-[#003505]">
           <h2 className="text-2xl font-bold text-center text-black py-4">Legal Assistance</h2>
           <p className="text-sm font-bold text-left ms-2 text-gray-700 py-4"><span className="text-red-500">Disclaimer : </span>
@@ -39,7 +39,7 @@ who you have verified.</p>
             <table className="w-full border-collapse">
               <thead className="sticky top-0 bg-gray-100 z-10">
                 <tr>
-                  <th className="text-center p-3 text-black font-semibold">Username</th>
+                  <th className="text-center p-3 text-black font-semibold">Name</th>
                   <th className="text-center p-3 text-black font-semibold">Email</th>
                   <th className="p-3 text-black font-semibold"></th>
                 </tr>
