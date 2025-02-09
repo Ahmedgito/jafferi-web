@@ -8,9 +8,14 @@ import Contact from "./pages/contact/Contact";
 import Legalass from "./pages/legalassistance/Legalass";
 import VirtualClinic from "./pages/virtualclinic/virtualclinic";
 import Business from "./pages/bussinessnesnetwork/Business";
+import PrivateRoute from './routes/PrivateRoute';
+import PublicRoute from "./routes/PublicRoute";
+import { Provider } from "react-redux";
+import { store } from "./store/store";
 
 function App() {
   return (
+  <Provider store={store}>
     <Router>
       <Layout>
         <Routes>
@@ -18,11 +23,11 @@ function App() {
           <Route path="/" element={<Home />} />
 
           {/* Other Pages */}
-          <Route path="/professionalnetwork" element={<Pnet />} />
+          <Route path="/professionalnetwork" element={<PrivateRoute><Pnet /></PrivateRoute>} />
           <Route path="/businessnetwork" element={<Business />} />
           <Route path="/legalassistance" element={<Legalass />} />
           <Route path="/virtualclinic" element={<VirtualClinic/>} />
-          <Route path="/signup" element={<Signup />} />
+          <Route path="/signup" element={<PublicRoute><Signup /></PublicRoute>} />
           <Route path="/signin" element={<Signin />} />
           <Route path="/contact" element={<Contact />} />
 
@@ -32,6 +37,7 @@ function App() {
         </Routes>
       </Layout>
     </Router>
+  </Provider>
   );
 }
 
