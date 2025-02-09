@@ -8,8 +8,8 @@ import Contact from "./pages/contact/Contact";
 import Legalass from "./pages/legalassistance/Legalass";
 import VirtualClinic from "./pages/virtualclinic/virtualclinic";
 import Business from "./pages/bussinessnesnetwork/Business";
-import PrivateRoute from './routes/PrivateRoute.jsx';
-import PublicRoute from "./routes/PublicRoute.jsx";
+import PrivateRoute from './routes/PrivateRoute';
+import PublicRoute from "./routes/PublicRoute";
 import { Provider } from "react-redux";
 import { store } from "./store/store";
 
