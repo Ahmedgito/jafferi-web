@@ -28,7 +28,7 @@ function App() {
           <Route path="/legalassistance" element={<Legalass />} />
           <Route path="/virtualclinic" element={<VirtualClinic/>} />
           <Route path="/signup" element={<PublicRoute><Signup /></PublicRoute>} />
-          <Route path="/signin" element={<Signin />} />
+          <Route path="/signin" element={<PublicRoute><Signin /></PublicRoute>} />
           <Route path="/contact" element={<Contact />} />
 
           {/* Redirect unknown routes to Home */}

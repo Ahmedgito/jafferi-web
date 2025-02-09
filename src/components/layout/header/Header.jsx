@@ -1,9 +1,12 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 import logo from "../../../assets/logo.png";
+import { useSelector } from "react-redux";
+import LogoutButton from "../../logout/Logout";
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { isAuthenticated } = useSelector((state) => state.auth);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -27,7 +30,11 @@ const Header = () => {
           <Link to="/virtualclinic" className=" text-white hover:text-gray-300" >Virtual Clinic</Link>
           <Link to="/legalassistance" className="text-white hover:text-gray-300">Legal Assistance</Link>
           <Link to="/contact" className="text-white hover:text-gray-300">Contact Us</Link>
-          <Link to="/signin" className="text-white hover:text-gray-300">Sign In</Link>
+          {isAuthenticated ? (
+              <LogoutButton />
+          ) : (
+              <Link to="/signin" className="text-white hover:text-gray-300">Sign In</Link>
+          )}
         </div>
 
         {/* Mobile Hamburger Button */}
@@ -66,7 +73,11 @@ const Header = () => {
         <Link to="/virtualclinic" className="block text-white py-2" onClick={toggleMobileMenu}>Virtual Clinic</Link>
         <Link to="/legalassistance" className="block text-white py-2" onClick={toggleMobileMenu}>Legal Assistance</Link>
         <Link to="/contact" className="block text-white py-2" onClick={toggleMobileMenu}>Contact Us</Link>
-        <Link to="/signin" className="block text-white py-2" onClick={toggleMobileMenu}>Sign In</Link>
+        {isAuthenticated ? (
+          <LogoutButton />
+        ) : (
+            <Link to="/signin" className="block text-white py-2" onClick={toggleMobileMenu}>Sign In</Link>
+        )}
       </div>
     </nav>
   );
