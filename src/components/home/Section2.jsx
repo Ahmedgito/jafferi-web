@@ -1,5 +1,5 @@
 import React from 'react';
-import Card from '../uicomponents/Card';
+import Card from '../uicomponents/Card.jsx';
 
 const Section2 = () => {
     return (

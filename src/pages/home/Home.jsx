@@ -1,7 +1,7 @@
 import React from "react";
-import Section1 from "./Section1";
-import Section2 from "./Section2";
-import Section3 from "./Section3";
+import Section1 from "../../components/home/Section1.jsx";
+import Section2 from "../../components/home/Section2.jsx";
+import Section3 from "../../components/home/Section3.jsx";
 
 
 const Home = () => {

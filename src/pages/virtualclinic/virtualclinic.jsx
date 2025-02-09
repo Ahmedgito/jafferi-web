@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import PButton from "../uicomponents/PButton";
-import ContactForm from "../uicomponents/VForm"; // Import Contact Form
+import PButton from "../../components/uicomponents/PButton.jsx";
+import ContactForm from "../../components/uicomponents/VForm.jsx"; // Import Contact Form
 
 const VirtualClinic = () => {
   const [selectedUser, setSelectedUser] = useState(null); // Stores selected user
