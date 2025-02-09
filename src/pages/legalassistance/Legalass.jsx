@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import PButton from "../uicomponents/PButton";
-import ContactForm from "../uicomponents/LForm"; // Import Contact Form
+import PButton from "../../components/uicomponents/PButton.jsx";
+import ContactForm from "../../components/uicomponents/LForm.jsx"; // Import Contact Form
 
 const Legalass = () => {
   const [selectedUser, setSelectedUser] = useState(null); // Stores selected user
