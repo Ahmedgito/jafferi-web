@@ -2,13 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { loginFailure, loginStart, loginSuccess } from "../../store/slices/authSlices";
+import axios from "axios";
 
 const Signin = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [errors, setErrors] = useState({ email: '', password: '' });
-
+  const [success, setSuccess] = useState('');
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { loading, isAuthenticated } = useSelector(state => state.auth);
@@ -17,6 +18,7 @@ const Signin = () => {
     if (isAuthenticated) {
       navigate("/");
     }
+    dispatch(loginFailure());
   }, [isAuthenticated, navigate]);
 
   const validateForm = () => {
@@ -38,15 +40,32 @@ const Signin = () => {
     return valid;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     dispatch(loginStart());
     if (validateForm()) {
-      dispatch(loginSuccess({
-        user: 'yamaan',
-        token: "no-token"
-      }));
-      navigate("/");
+
+        try{
+          const response = await axios.post('http://localhost:5000/api/v1/auth/login',
+      {
+              email: email,
+              password: password
+            });
+            if(response.status === 200){
+              setSuccess(response.data.message);
+
+              dispatch(loginSuccess({
+                  user: response.data.user_details,
+                  token: response.data.AuthToken
+                }));
+              setTimeout(() => {
+                navigate("/");
+              }, 2000);
+            }
+        }catch (err) {
+          setErrors({ email: '', password: err.response?.data?.error_message });
+          dispatch(loginFailure());
+        }
     }else{
       setTimeout(() => {
         dispatch(loginFailure());
@@ -130,6 +149,7 @@ const Signin = () => {
                     {loading ? 'Logging in...' : 'Log in'}
                   </button>
                 </form>
+                {success && <p className="text-green-500 text-m text-center pt-4">{success}</p>}
               </div>
             </div>
           </div>

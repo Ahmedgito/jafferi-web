@@ -9,7 +9,7 @@ const LogoutButton = () => {
 
     const handlelogout = () => {
         dispatch(logout());
-        navigate('/signup');
+        navigate('/signin');
     };
 
     return <button className="block text-white p-0" onClick={handlelogout}>Logout</button>
