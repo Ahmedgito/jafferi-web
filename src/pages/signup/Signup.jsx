@@ -5,6 +5,65 @@ import { Eye, EyeOff } from "lucide-react"; // Import eye icons
 const Form = () => {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+    mentorship: "",
+    PhoneNumber: "",
+    IndustryType: "",
+    JobTitle: "",
+    Description: "",
+  });
+  const [errors, setErrors] = useState({});
+  const [successMessage, setSuccessMessage] = useState("");
+
+  const validateForm = () => {
+    let newErrors = {};
+    if (!formData.name.trim()) newErrors.name = "Full name is required";
+    if (!formData.email.trim()) newErrors.email = "Email is required";
+    if (!formData.password.trim()) newErrors.password = "Password is required";
+    if (!formData.PhoneNumber.trim()) newErrors.PhoneNumber = "Phone number is required";
+    if (!formData.IndustryType.trim()) newErrors.IndustryType = "Industry type is required";
+    if (!formData.JobTitle.trim()) newErrors.JobTitle = "Job title is required";
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    setFormData({ ...formData, [id]: value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!validateForm()) return;
+    const role = formData.mentorship === "Yes" ? "mentor" : formData.mentorship === "No" ? "seeker" : "helper";
+    const payload = { ...formData, role };
+
+    try {
+      const response = await fetch("https://your-api-endpoint.com/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const result = await response.json();
+      console.log("Response:", result);
+
+      if (response.ok) {
+        alert("Registration successful!");
+        navigate("/signin");
+      } else {
+        alert(result.message || "Something went wrong");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("Network error, please try again");
+    }
+  };
+
 
   return (
     <>
