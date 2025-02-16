@@ -13,7 +13,20 @@ import PublicRoute from "./routes/PublicRoute.jsx";
 import { Provider } from "react-redux";
 import { store } from "./store/store";
 
+const requiredIndustries = {
+  professionalNetwork: [
+    "Agriculture, Environment & Sustainability",
+    "Arts, Communication, Media & Design",
+    "Consulting, Finance, Operations & Entrepreneurship",
+    "Education, Human Services & NonProfit",
+    "Hospitality, Sports & Recreation",
+    "Technology, Engineering & Data"
+  ],
+  legalAssistance: ["Government, Policy, Law & International Affairs"],
+  virtualClinic: ["Health & Sciences"]
+};
 function App() {
+
   return (
   <Provider store={store}>
     <Router>
@@ -23,10 +36,10 @@ function App() {
           <Route path="/" element={<Home />} />
 
           {/* Other Pages */}
-          <Route path="/professionalnetwork" element={<PrivateRoute><Pnet /></PrivateRoute>} />
-          <Route path="/businessnetwork" element={<Business />} />
-          <Route path="/legalassistance" element={<Legalass />} />
-          <Route path="/virtualclinic" element={<VirtualClinic/>} />
+          <Route path="/professionalnetwork" element={<PrivateRoute allowedIndustries={requiredIndustries.professionalNetwork}> <Pnet /> </PrivateRoute>} />
+          <Route path="/businessnetwork" element={<PrivateRoute allowedIndustries={requiredIndustries.professionalNetwork}> <Business /> </PrivateRoute>} />
+          <Route path="/legalassistance" element={<PrivateRoute allowedIndustries={requiredIndustries.legalAssistance}> <Legalass /> </PrivateRoute>} />
+          <Route path="/virtualclinic" element={<PrivateRoute allowedIndustries={requiredIndustries.virtualClinic}> <VirtualClinic/> </PrivateRoute>} />
           <Route path="/signup" element={<PublicRoute><Signup /></PublicRoute>} />
           <Route path="/signin" element={<PublicRoute><Signin /></PublicRoute>} />
           <Route path="/contact" element={<Contact />} />
