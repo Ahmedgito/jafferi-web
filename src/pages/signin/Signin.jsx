@@ -13,6 +13,7 @@ const Signin = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { loading, isAuthenticated } = useSelector(state => state.auth);
+  const apiUrl = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -40,13 +41,14 @@ const Signin = () => {
     return valid;
   };
 
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     dispatch(loginStart());
     if (validateForm()) {
 
-        try{
-          const response = await axios.post('http://localhost:5000/api/v1/auth/login',
+      try{
+          const response = await axios.post(`${apiUrl}/auth/login`,
       {
               email: email,
               password: password
@@ -58,12 +60,15 @@ const Signin = () => {
                   user: response.data.user_details,
                   token: response.data.AuthToken
                 }));
+              localStorage.setItem("AuthToken", response.data.AuthToken);
+              localStorage.setItem("AuthUser", JSON.stringify(response.data.user_details));
+
               setTimeout(() => {
                 navigate("/");
               }, 2000);
             }
         }catch (err) {
-          setErrors({ email: '', password: err.response?.data?.error_message });
+          setErrors({ email: '', password: err.response?.data?.error_message || "Login failed" });
           dispatch(loginFailure());
         }
     }else{
