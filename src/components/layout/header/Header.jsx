@@ -15,16 +15,23 @@ const allowedPages = {
   "Health & Sciences": ["/virtualclinic"],
 };
 
+const allPages = ["/professionalnetwork", "/legalassistance", "/virtualclinic", "/businessnetwork"];
+
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { isAuthenticated, industry } = useSelector((state) => state.auth);
+  const { isAuthenticated, industry, role } = useSelector((state) => state.auth);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
-  // Check karein kaunse pages allowed hain
-  const availableRoutes = industry ? allowedPages[industry] || [] : [];
+  // **Role-Based Page Access**
+  let availableRoutes = [];
+  if (role === "helper") {
+    availableRoutes = allPages; // Helper ko sab pages dikhai denge
+  } else if (role === "seeker" && industry) {
+    availableRoutes = allowedPages[industry] || []; // Seeker ko sirf industry-based pages
+  }
 
   return (
       <nav className="bg-[#003505] p-4 fixed w-full top-0 left-0 z-50">
@@ -58,7 +65,6 @@ const Header = () => {
                   <Link to="/signin" className="text-white hover:text-gray-300">Sign In</Link>
                 </>
             )}
-
           </div>
 
           <button className="md:hidden text-white focus:outline-none" onClick={toggleMobileMenu}>
@@ -92,12 +98,11 @@ const Header = () => {
                 <LogoutButton />
               </>
           ) : (
-            <>
-              <Link to="/contact" className="block text-white py-2" onClick={toggleMobileMenu}>Contact Us</Link>
-              <Link to="/signin" className="block text-white py-2" onClick={toggleMobileMenu}>Sign In</Link>
-            </>
+              <>
+                <Link to="/contact" className="block text-white py-2" onClick={toggleMobileMenu}>Contact Us</Link>
+                <Link to="/signin" className="block text-white py-2" onClick={toggleMobileMenu}>Sign In</Link>
+              </>
           )}
-
         </div>
       </nav>
   );
