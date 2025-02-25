@@ -1,28 +1,32 @@
 import React, { useState } from "react";
+import AdRegisterPopup from "../../components/uicomponents/BForm"; // Import the new popup component
 
 const ads = [
   {
     id: 1,
     title: "Ad One",
     image: "https://placehold.co/300",
-    description: "This is a long description for Ad One. It provides detailed information about the advertisement, ensuring that the modal adjusts dynamically based on the content length without breaking the design."
+    description:
+      "This is a long description for Ad One. It provides detailed information about the advertisement, ensuring that the modal adjusts dynamically based on the content length without breaking the design.",
   },
   {
     id: 2,
     title: "Ad Two",
     image: "https://placehold.co/300",
-    description: "This is a short description."
+    description: "This is a short description.",
   },
   {
     id: 3,
     title: "Ad Three",
     image: "https://placehold.co/300",
-    description: "Another longer description my name is Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis pariatur velit, excepturi deleniti accusamus a est, dolores aut ex itaque hic beatae facilis labore quidem ea? Odio in maxime illum? ahmed hello im Subsequently."
-  }
+    description:
+      "Another longer description my name is Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis pariatur velit, excepturi deleniti accusamus a est, dolores aut ex itaque hic beatae facilis labore quidem ea? Odio in maxime illum? ahmed hello im Subsequently.",
+  },
 ];
 
 const Business = () => {
   const [activeAd, setActiveAd] = useState(null);
+  const [showAdRegister, setShowAdRegister] = useState(false);
 
   return (
     <>
@@ -37,8 +41,19 @@ const Business = () => {
         }`}
       </style>
 
-      <div className="container  mx-auto p-4 relative">
-        <h2 className="text-4xl font-bold mb-10 font-sans text-center">Business Network</h2>
+      <div className="container mx-auto p-4 relative">
+        {/* Register Ad Button */}
+        <button
+          className="absolute top-4 right-4 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition"
+          onClick={() => setShowAdRegister(true)}
+        >
+          Click to register your ad
+        </button>
+
+        <h2 className="text-4xl font-bold mb-10 font-sans text-center">
+          Business Network
+        </h2>
+
         <div className="flex flex-col justify-center md:flex-row gap-6">
           {/* Tabs List */}
           <div className="w-full md:w-1/3 flex flex-col gap-4">
@@ -59,7 +74,7 @@ const Business = () => {
           </div>
         </div>
 
-        {/* Modal Overlay with Blur */}
+        {/* Ad Details Modal */}
         {activeAd && (
           <div className="fixed inset-0 bg-transparent bg-opacity-50 z-50 backdrop-blur-lg flex justify-center items-center p-4">
             <div className="p-6 md:p-8 border rounded-lg shadow-xl bg-white max-w-lg w-full relative max-h-[80vh] overflow-y-auto">
@@ -74,10 +89,17 @@ const Business = () => {
                 alt={activeAd.title}
                 className="w-full h-64 object-cover rounded-lg"
               />
-              <h3 className="text-2xl text-center text-[#003505] font-bold mt-4">{activeAd.title}</h3>
+              <h3 className="text-2xl text-center text-[#003505] font-bold mt-4">
+                {activeAd.title}
+              </h3>
               <p className="mt-3 text-gray-600 text-lg">{activeAd.description}</p>
             </div>
           </div>
+        )}
+
+        {/* Ad Registration Popup */}
+        {showAdRegister && (
+          <AdRegisterPopup onClose={() => setShowAdRegister(false)} />
         )}
       </div>
     </>
