@@ -160,7 +160,7 @@ const Signin = () => {
                       Forgot Password?
                     </a>
                   </div>
-                  <LoginGoogle handleSuccess={handleSuccess}/>
+                  <LoginGoogle handleSuccess={handleSuccess}/>  
                   <button
                       className="py-2 px-4 bg-[#003505] hover:bg-green-800 text-white w-full rounded-lg font-semibold"
                       type="submit"

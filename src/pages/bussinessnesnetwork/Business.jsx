@@ -42,13 +42,15 @@ const Business = () => {
       </style>
 
       <div className="container mx-auto p-4 relative">
-        {/* Register Ad Button */}
-        <button
-          className="absolute top-4 right-4 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition"
-          onClick={() => setShowAdRegister(true)}
-        >
-          Click to register your ad
-        </button>
+        {/* Responsive Register Ad Button */}
+        <div className="flex justify-center md:justify-end mt-4">
+          <button
+            className="w-full md:w-auto bg-[#003505] text-white p-3 mb-5 md:px-4 md:py-2 rounded-lg hover:bg-green-700 transition"
+            onClick={() => setShowAdRegister(true)}
+          >
+            Click to register your ad
+          </button>
+        </div>
 
         <h2 className="text-4xl font-bold mb-10 font-sans text-center">
           Business Network
