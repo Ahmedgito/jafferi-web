@@ -1,32 +1,46 @@
 import React, { useState } from "react";
-import AdRegisterPopup from "../../components/uicomponents/BForm"; // Import the new popup component
+import AdRegisterPopup from "../../components/uicomponents/BForm"; // Import Ad registration popup
 
 const ads = [
   {
     id: 1,
-    title: "Ad One",
-    image: "https://placehold.co/300",
+    title: "Luxury Apartment for Rent",
+    images: [
+      "https://placehold.co/300",
+      "https://placehold.co/300?text=Image2",
+      "https://placehold.co/300?text=Image3",
+    ],
+    category: "Real Estate",
     description:
-      "This is a long description for Ad One. It provides detailed information about the advertisement, ensuring that the modal adjusts dynamically based on the content length without breaking the design.",
+      "A spacious 2-bedroom apartment with modern amenities. Located in a prime area with easy access to transport and shopping centers.",
+    price: "$1,200/month",
+    contactEmail: "owner@example.com",
+    contactPhone: "+123456789",
+    location: "New York, NY",
   },
   {
     id: 2,
-    title: "Ad Two",
-    image: "https://placehold.co/300",
-    description: "This is a short description.",
-  },
-  {
-    id: 3,
-    title: "Ad Three",
-    image: "https://placehold.co/300",
+    title: "2023 Tesla Model S for Sale",
+    images: [
+      "https://placehold.co/300",
+      "https://placehold.co/300?text=Car2",
+      "https://placehold.co/300?text=Car3",
+      "https://placehold.co/300?text=Car4",
+    ],
+    category: "Automotive",
     description:
-      "Another longer description my name is Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis pariatur velit, excepturi deleniti accusamus a est, dolores aut ex itaque hic beatae facilis labore quidem ea? Odio in maxime illum? ahmed hello im Subsequently.",
+      "A well-maintained Tesla Model S with autopilot and full self-driving package. Excellent condition.",
+    price: "$85,000",
+    contactEmail: "seller@carsales.com",
+    contactPhone: "+1987654321",
+    location: "Los Angeles, CA",
   },
 ];
 
 const Business = () => {
   const [activeAd, setActiveAd] = useState(null);
   const [showAdRegister, setShowAdRegister] = useState(false);
+  const [fullSizeImage, setFullSizeImage] = useState(null); // State for full-size image
 
   return (
     <>
@@ -42,7 +56,7 @@ const Business = () => {
       </style>
 
       <div className="container mx-auto p-4 relative">
-        {/* Responsive Register Ad Button */}
+        {/* Register Ad Button */}
         <div className="flex justify-center md:justify-end mt-4">
           <button
             className="w-full md:w-auto bg-[#003505] text-white p-3 mb-5 md:px-4 md:py-2 rounded-lg hover:bg-green-700 transition"
@@ -57,7 +71,7 @@ const Business = () => {
         </h2>
 
         <div className="flex flex-col justify-center md:flex-row gap-6">
-          {/* Tabs List */}
+          {/* Ads List */}
           <div className="w-full md:w-1/3 flex flex-col gap-4">
             {ads.map((ad) => (
               <button
@@ -66,7 +80,7 @@ const Business = () => {
                 className="flex items-center p-4 border rounded-lg shadow-md hover:bg-gray-100 transition"
               >
                 <img
-                  src={ad.image}
+                  src={ad.images[0]}
                   alt={ad.title}
                   className="w-24 h-24 object-cover rounded-md"
                 />
@@ -86,23 +100,74 @@ const Business = () => {
               >
                 ✕
               </button>
-              <img
-                src={activeAd.image}
-                alt={activeAd.title}
-                className="w-full h-64 object-cover rounded-lg"
-              />
+
+              {/* Image Carousel */}
+              <div className="flex overflow-x-auto space-x-2">
+                {activeAd.images.map((img, index) => (
+                  <img
+                    key={index}
+                    src={img}
+                    alt={`Ad Image ${index + 1}`}
+                    className="w-24 h-24 object-cover rounded-md border cursor-pointer"
+                    onClick={() => setFullSizeImage(img)} // Open full-size image
+                  />
+                ))}
+              </div>
+
               <h3 className="text-2xl text-center text-[#003505] font-bold mt-4">
                 {activeAd.title}
               </h3>
+
+              <p className="text-gray-500 text-sm text-center mt-1">
+                Category: <span className="font-semibold">{activeAd.category}</span>
+              </p>
+
               <p className="mt-3 text-gray-600 text-lg">{activeAd.description}</p>
+
+              {/* Price */}
+              <p className="text-xl font-bold text-green-700 mt-4">
+                {activeAd.price}
+              </p>
+
+              {/* Contact Details */}
+              <div className="mt-4 p-3 bg-gray-100 rounded-lg">
+                <p className="text-gray-700">
+                  📍 <strong>Location:</strong> {activeAd.location}
+                </p>
+                <p className="text-gray-700">
+                  📧 <strong>Email:</strong>{" "}
+                  <a href={`mailto:${activeAd.contactEmail}`} className="text-blue-600">
+                    {activeAd.contactEmail}
+                  </a>
+                </p>
+                <p className="text-gray-700">
+                  📞 <strong>Phone:</strong>{" "}
+                  <a href={`tel:${activeAd.contactPhone}`} className="text-blue-600">
+                    {activeAd.contactPhone}
+                  </a>
+                </p>
+              </div>
             </div>
           </div>
         )}
 
-        {/* Ad Registration Popup */}
-        {showAdRegister && (
-          <AdRegisterPopup onClose={() => setShowAdRegister(false)} />
+        {/* Full-Size Image Preview with Close Button */}
+        {fullSizeImage && (
+          <div className="fixed inset-0 flex justify-center items-center bg-tranparent backdrop-blur-md bg-opacity-80 z-50">
+            {/* Close Button */}
+            <button
+              className="absolute top-5 right-5 text-white text-3xl font-bold bg-[#003505] rounded-full p-2 hover:bg-gray-700 transition"
+              onClick={() => setFullSizeImage(null)}
+            >
+              ✕
+            </button>
+
+            <img src={fullSizeImage} alt="Full Size Preview" className="max-w-full max-h-full" />
+          </div>
         )}
+
+        {/* Ad Registration Popup */}
+        {showAdRegister && <AdRegisterPopup onClose={() => setShowAdRegister(false)} />}
       </div>
     </>
   );
