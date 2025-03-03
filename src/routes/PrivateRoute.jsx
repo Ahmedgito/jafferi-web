@@ -8,9 +8,9 @@ const PrivateRoute = ({ allowedIndustries, children }) => {
         return <Navigate to="/signin" />;
     }
 
-    if(role === 'admin'){
-        return children
-    }
+    // if(role === 'admin'){
+    //     return children
+    // }
     if(role === "helper"){
         return children
     }
