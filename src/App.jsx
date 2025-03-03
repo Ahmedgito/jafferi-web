@@ -8,10 +8,12 @@ import Contact from "./pages/contact/Contact";
 import Legalass from "./pages/legalassistance/Legalass";
 import VirtualClinic from "./pages/virtualclinic/virtualclinic";
 import Business from "./pages/bussinessnesnetwork/Business";
+import Admin from "./pages/admin/admin";
 import PrivateRoute from './routes/PrivateRoute.jsx';
 import PublicRoute from "./routes/PublicRoute.jsx";
 import { Provider } from "react-redux";
 import { store } from "./store/store";
+
 
 const requiredIndustries = {
   professionalNetwork: [
@@ -44,9 +46,10 @@ function App() {
           <Route path="/signin" element={<PublicRoute><Signin /></PublicRoute>} />
           <Route path="/contact" element={<Contact />} />
 
+          <Route path="/dashboard" element={<PrivateRoute > <Admin /> </PrivateRoute>} />
           {/* Redirect unknown routes to Home */}
           <Route path="*" element={<Navigate to="/" />} />
-        
+
         </Routes>
       </Layout>
     </Router>
