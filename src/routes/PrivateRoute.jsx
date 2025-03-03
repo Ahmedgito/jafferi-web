@@ -10,7 +10,6 @@ const PrivateRoute = ({ allowedIndustries, children }) => {
 
     if(role === 'admin'){
         return children
-
     }
     if(role === "helper"){
         return children
