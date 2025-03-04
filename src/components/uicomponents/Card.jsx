@@ -1,4 +1,5 @@
 import React from "react";
+import PButton from "./PButton";
 
 const Card = ({ heading, paragraph, image }) => {
   return (
@@ -25,9 +26,7 @@ const Card = ({ heading, paragraph, image }) => {
 
         {/* Button Section */}
         <div className="p-6 pt-0">
-          <button className="w-full rounded-lg bg-[#003505] py-3 px-6 text-xs font-bold uppercase text-white shadow-md transition-all hover:shadow-lg focus:opacity-85 active:opacity-85 disabled:pointer-events-none disabled:opacity-50">
-            Read More
-          </button>
+          <PButton/>
         </div>
       </div>
     </div>
