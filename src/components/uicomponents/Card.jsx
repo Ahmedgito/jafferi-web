@@ -1,138 +1,37 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Mail, Facebook, Linkedin } from 'lucide-react';
+import React from "react";
 
-const Card = () => {
+const Card = ({ heading, paragraph, image }) => {
   return (
-    <StyledWrapper>
-      <div className="card">
-        <div className="top-section">
-          <div className="border" />
-          <div className="icons">
-            <div className="logo">
-            </div>
-            <div className="social-media">
-              <Mail className="icon" fill="white" />
-              <Facebook className="icon" fill="white" />
-              <Linkedin className="icon" fill="white" />
-            </div>
+    <div className="flex flex-wrap justify-center gap-6 p-4">
+      <div className="relative flex w-full max-w-xs flex-col rounded-xl bg-white shadow-md md:max-w-sm lg:max-w-md">
+        {/* Image Section */}
+        {image && (
+          <div className="relative h-40 w-full overflow-hidden rounded-t-xl">
+            <img
+              src={image}
+              alt="Card Image"
+              className="h-full w-full object-cover"
+            />
           </div>
+        )}
+
+        {/* Content Section */}
+        <div className="p-6">
+          <h5 className="mb-2 text-xl font-semibold text-blue-gray-900">
+            {heading}
+          </h5>
+          <p className="text-base font-light">{paragraph}</p>
         </div>
-        <div className="bottom-section">
-          <span className="title">NAME</span>
+
+        {/* Button Section */}
+        <div className="p-6 pt-0">
+          <button className="w-full rounded-lg bg-[#003505] py-3 px-6 text-xs font-bold uppercase text-white shadow-md transition-all hover:shadow-lg focus:opacity-85 active:opacity-85 disabled:pointer-events-none disabled:opacity-50">
+            Read More
+          </button>
         </div>
       </div>
-    </StyledWrapper>
+    </div>
   );
-}
-
-const StyledWrapper = styled.div`
-  .card {
-    width: 230px;
-    border-radius: 20px;
-    background: #003505;
-    padding: 5px;
-    overflow: hidden;
-    box-shadow: #003505 0px 7px 20px 0px;
-    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  }
-
-  .card:hover {
-    transform: scale(1.05);
-  }
-
-  .card .top-section {
-    height: 150px;
-    border-radius: 15px;
-    display: flex;
-    flex-direction: column;
-    background: #fff;
-    position: relative;
-  }
-
-  .card .top-section .border {
-    border-bottom-right-radius: 10px;
-    height: 30px;
-    width: 130px;
-    background: white;
-    background: #003505;
-    position: relative;
-    transform: skew(-40deg);
-    box-shadow: -10px -10px 0 0 #003505;
-  }
-
-  .card .top-section .border::before {
-    content: "";
-    position: absolute;
-    width: 15px;
-    height: 15px;
-    top: 0;
-    right: -15px;
-    background: rgba(255, 255, 255, 0);
-    border-top-left-radius: 10px;
-    box-shadow: -5px -5px 0 2px #003505;
-  }
-
-  .card .top-section::before {
-    content: "";
-    position: absolute;
-    top: 30px;
-    left: 0;
-    background: rgba(255, 255, 255, 0);
-    height: 15px;
-    width: 15px;
-    border-top-left-radius: 15px;
-    box-shadow: -5px -5px 0 2px #003505;
-  }
-
-  .card .top-section .icons {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 30px;
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .card .top-section .icons .logo {
-    height: 100%;
-    aspect-ratio: 1;
-    padding: 7px 0 7px 15px;
-  }
-
-  .card .top-section .icons .social-media {
-    height: 100%;
-    padding: 5px 8px;
-    display: flex;
-    gap: 4px;
-  }
-
-  .card .top-section .icons .social-media .icon {
-    height: 20px;
-    width: 20px;
-    color: #1b233d;
-    transition: color 0.3s ease;
-  }
-
-  .card .top-section .icons .social-media .icon:hover {
-    color: black;
-    transition: color 0.3s ease;
-    cursor: pointer;
-  }
-
-  .card .bottom-section {
-    margin-top: 15px;
-    padding: 10px 5px;
-  }
-
-  .card .bottom-section .title {
-    display: block;
-    font-size: 17px;
-    font-weight: bolder;
-    color: white;
-    text-align: center;
-    letter-spacing: 2px;
-  }
-`;
+};
 
 export default Card;

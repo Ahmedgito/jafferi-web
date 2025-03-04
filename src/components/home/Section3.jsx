@@ -1,5 +1,6 @@
 import React from "react";
 
+import Nloader from '../uicomponents/Nloader';
 
 const  NewsEvents = () => {
     const articles = [
@@ -29,7 +30,15 @@ const  NewsEvents = () => {
     return (
         <section className="py-12 bg-white">
             <div className="container mx-auto px-6">
-                <h2 className="text-3xl font-bold text-center mb-4">News & Events</h2>
+            <div className="flex flex-col items-center justify-center gap-4 mb-6">
+      <h2 className="text-4xl font-extrabold text-[#003505] tracking-wide uppercase drop-shadow-md flex items-center gap-4">
+        News and Events
+        <span className="inline-block scale-90">
+          
+<Nloader/>
+        </span>
+      </h2>
+    </div>
                 <p className="text-center text-gray-600 mb-8 max-w-2xl mx-auto">
                     Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock.
                 </p>

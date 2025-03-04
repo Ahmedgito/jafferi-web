@@ -3,6 +3,7 @@ import PButton from "../../components/uicomponents/PButton.jsx";
 import ContactForm from "../../components/uicomponents/VForm.jsx";
 import { useSelector } from "react-redux";
 import axios from "axios";
+import Loader from "../../components/uicomponents/Bloodline.jsx";
 
 const VirtualClinic = () => {
     const [selectedUser, setSelectedUser] = useState(null);
@@ -50,9 +51,14 @@ const VirtualClinic = () => {
             {/* Main Container */}
             <div className="w-full flex justify-center py-20 px-4">
                 <div className="w-full max-w-4xl bg-white rounded-lg shadow-lg overflow-hidden border-2 border-[#003505]">
-                    <h2 className="text-2xl font-bold text-center text-black py-4">
-                        Virtual Clinic
-                    </h2>
+                <div className="flex flex-col items-center justify-center gap-2 mb-6">
+      <h2 className="text-4xl font-extrabold text-[#003505] tracking-wide uppercase drop-shadow-md flex items-center gap-2">
+        Virtual Clinic
+        <span className=" mt-2 md:inline-block hidden">
+         <Loader/>
+        </span>
+      </h2>
+    </div>
                     <p className="text-sm font-bold text-left ms-2 text-gray-700 py-4">
                         <span className="text-red-500">Disclaimer: </span>
                         If you are experiencing an emergency, please call 911 or the relevant emergency services number in your region. This portal is not designed for emergencies.
