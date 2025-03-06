@@ -87,7 +87,7 @@ const BForm = ({ onClose }) => {
               <input type="file" accept="image/*" multiple onChange={handleImageUpload} className="w-full px-3 py-2 border rounded-lg"/>
               <p className="text-sm text-gray-500 mt-1">You must upload at least 3 images (Max: 7).</p>
 
-              {/* Show uploaded images */}
+              {/* Show upload ed images */}
               <div className="flex flex-wrap gap-2 mt-2">
                 {images.map((img, index) => (
                     <img key={index} src={URL.createObjectURL(img)} alt={`Uploaded ${index + 1}`} className="w-16 h-16 object-cover rounded-md border"/>
