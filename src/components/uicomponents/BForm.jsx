@@ -95,6 +95,33 @@ const BForm = ({ onClose }) => {
               </div>
             </div>
 
+            {/* Ad Title */}
+            <div>
+              <label className="block text-gray-700">Ad Title</label>
+              <input
+                  type="text"
+                  name="title"
+                  className="w-full px-3 py-2 border rounded-lg"
+                  placeholder="Enter Ad Title"
+                  onChange={handleChange}
+                  required
+              />
+            </div>
+
+            {/* Description */}
+            <div>
+              <label className="block text-gray-700">Description</label>
+              <textarea
+                  name="description"
+                  className="w-full px-3 py-2 border rounded-lg"
+                  rows="3"
+                  placeholder="Enter Description"
+                  onChange={handleChange}
+                  required
+              ></textarea>
+            </div>
+
+            {/* Category */}
             <div>
               <label className="block text-gray-700">Category</label>
               <select
@@ -113,13 +140,77 @@ const BForm = ({ onClose }) => {
               </select>
             </div>
 
-            {/* Form Fields */}
-            {["title", "description", "ad_description", "price_offer", "contact_email", "contact_phone", "location"].map((field, index) => (
-                <div key={index}>
-                  <label className="block text-gray-700">{field.replace("_", " ")}</label>
-                  <input type="text" name={field} className="w-full px-3 py-2 border rounded-lg" placeholder={`Enter ${field}`} onChange={handleChange} required/>
-                </div>
-            ))}
+            {/* Ad Description */}
+            <div>
+              <label className="block text-gray-700">Ad Description</label>
+              <textarea
+                  name="ad_description"
+                  className="w-full px-3 py-2 border rounded-lg"
+                  rows="3"
+                  placeholder="Enter Ad Description"
+                  onChange={handleChange}
+                  required
+              ></textarea>
+            </div>
+
+            {/* Price or Offer */}
+            <div>
+              <label className="block text-gray-700">Price/Offer</label>
+              <input
+                  type="text"
+                  name="price_offer"
+                  className="w-full px-3 py-2 border rounded-lg"
+                  placeholder="Enter Price or Offer"
+                  onChange={handleChange}
+              />
+            </div>
+
+            {/* Contact Email */}
+            <div>
+              <label className="block text-gray-700">Contact Email</label>
+              <input
+                  type="email"
+                  name="contact_email"
+                  className="w-full px-3 py-2 border rounded-lg"
+                  placeholder="Enter Contact Email"
+                  onChange={handleChange}
+                  required
+              />
+            </div>
+
+            {/* Contact Phone */}
+            <div>
+              <label className="block text-gray-700">Contact Phone</label>
+              <input
+                  type="tel"
+                  name="contact_phone"
+                  className="w-full px-3 py-2 border rounded-lg"
+                  placeholder="Enter Contact Number"
+                  onChange={handleChange}
+                  required
+              />
+            </div>
+
+            {/* Location */}
+            <div>
+              <label className="block text-gray-700">Location</label>
+              <input
+                  type="text"
+                  name="location"
+                  className="w-full px-3 py-2 border rounded-lg"
+                  placeholder="Enter City, State or Address"
+                  onChange={handleChange}
+                  required
+              />
+            </div>
+
+            {/* Notice */}
+            <div className="p-4 bg-gray-100 border-l-4 border-yellow-500 rounded-lg">
+              <p className="text-gray-700 text-sm">
+                Notice: Your ad submission will be reviewed before approval.
+                Please ensure all details are accurate.
+              </p>
+            </div>
 
             {/* Submit Button */}
             <button type="submit" className={`w-full py-2 ${loading ? "bg-gray-500 cursor-not-allowed" : "bg-green-800 hover:bg-green-900"} text-white rounded-lg transition-all duration-300`} disabled={loading}>
