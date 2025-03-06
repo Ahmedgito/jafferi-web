@@ -95,8 +95,26 @@ const BForm = ({ onClose }) => {
               </div>
             </div>
 
+            <div>
+              <label className="block text-gray-700">Category</label>
+              <select
+                  name="category"
+                  className="w-full px-3 py-2 border rounded-lg"
+                  onChange={handleChange}
+                  required
+              >
+                <option value="">-- Select Category --</option>
+                <option>Real Estate</option>
+                <option>Automotive</option>
+                <option>Technology</option>
+                <option>Services</option>
+                <option>Retail</option>
+                <option>Other</option>
+              </select>
+            </div>
+
             {/* Form Fields */}
-            {["title", "description", "category", "ad_description", "price_offer", "contact_email", "contact_phone", "location"].map((field, index) => (
+            {["title", "description", "ad_description", "price_offer", "contact_email", "contact_phone", "location"].map((field, index) => (
                 <div key={index}>
                   <label className="block text-gray-700">{field.replace("_", " ")}</label>
                   <input type="text" name={field} className="w-full px-3 py-2 border rounded-lg" placeholder={`Enter ${field}`} onChange={handleChange} required/>
