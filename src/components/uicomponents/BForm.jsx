@@ -72,7 +72,9 @@ const BForm = ({ onClose }) => {
         alert("Ad submitted successfully!");
         setErrorMessage("");
         onClose();
-      } else if (response.status === 413) {
+      }
+
+      if (response.status === 413) {
         throw new Error('Images are too large. Kindly provide compressed images.')
       }
     } catch (e) {
