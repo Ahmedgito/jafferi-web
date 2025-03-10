@@ -6,7 +6,6 @@ const BForm = ({ onClose }) => {
   const { token } = useSelector((state) => state.auth);
   const apiUrl = import.meta.env.VITE_API_URL;
   const [errorMessage, setErrorMessage] = useState("");
-
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
@@ -30,7 +29,7 @@ const BForm = ({ onClose }) => {
     const files = Array.from(event.target.files);
 
     if (files.length + images.length > 7) {
-      alert("You can upload a maximum of 7 images.");
+      setErrorMessage("You can upload a maximum of 7 images.");
       return;
     }
 
@@ -58,25 +57,28 @@ const BForm = ({ onClose }) => {
     images.forEach((file) => formDataToSend.append("images", file));
 
     try {
-      const response = await axios.post(`${apiUrl}/issues/business-network`, formDataToSend, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "multipart/form-data",
-        },
-      });
+      const response = await axios.post(
+          `${apiUrl}/issues/business-network`,
+          formDataToSend,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+              "Content-Type": "multipart/form-data",
+            },
+          }
+      );
 
-      if(response.status === 201){
+      if (response.status === 201) {
         alert("Ad submitted successfully!");
-        setErrorMessage('');
+        setErrorMessage("");
         onClose();
-      } else if(response.status === 413) {
-        setErrorMessage("Images are to large kindly provide compressed images");
+      } else if (response.status === 413) {
+        setErrorMessage("Images are too large. Kindly provide compressed images.");
       }
     } catch (error) {
-      setErrorMessage("Error uploading Ad.");
+      setErrorMessage("Error uploading Ad. Please try again.");
     } finally {
       setLoading(false);
-      setErrorMessage("");
     }
   };
 
