@@ -78,7 +78,8 @@ const BForm = ({ onClose }) => {
         throw new Error('Images are too large. Kindly provide compressed images.')
       }
     } catch (e) {
-      setErrorMessage(e.message);
+      console.log(e);
+      setErrorMessage("Images are too large. Kindly provide compressed images.");
     } finally {
       setLoading(false);
     }
