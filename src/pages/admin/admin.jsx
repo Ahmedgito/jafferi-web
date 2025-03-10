@@ -34,7 +34,7 @@ const Admin = () => {
         else if (activeTab === "seekers") fetchData("/info/get-all-users?role=seeker");
         else if (activeTab === "contactForms") fetchData("/contact/get-contact-form");
         else if (activeTab === "businesses") fetchData("/admin/get-all-business-network");
-        else if (activeTab === "pendingBusinesses") fetchData("/admin/get-business-network");
+        else if (activeTab === "pendingBusinesses") fetchData("/admin/get-business-network?status_all=pending");
         else setData([]);
     }, [activeTab]);
 
