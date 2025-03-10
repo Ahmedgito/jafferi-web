@@ -5,6 +5,7 @@ import axios from "axios";
 const BForm = ({ onClose }) => {
   const { token } = useSelector((state) => state.auth);
   const apiUrl = import.meta.env.VITE_API_URL;
+  const [errorMessage, setErrorMessage] = useState("");
 
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -41,7 +42,7 @@ const BForm = ({ onClose }) => {
     e.preventDefault();
 
     if (images.length < 3) {
-      alert("Please upload at least 3 images before submitting.");
+      setErrorMessage("Please upload at least 3 images before submitting.");
       return;
     }
 
@@ -64,14 +65,18 @@ const BForm = ({ onClose }) => {
         },
       });
 
-      console.log(response);
-      alert("Ad submitted successfully!");
-      onClose();
+      if(response.status === 201){
+        alert("Ad submitted successfully!");
+        setErrorMessage('');
+        onClose();
+      } else if(response.status === 413) {
+        setErrorMessage("Images are to large kindly provide compressed images");
+      }
     } catch (error) {
-      console.error("Submission failed:", error);
-      alert("Failed to submit the ad.");
+      setErrorMessage("Error uploading Ad.");
     } finally {
       setLoading(false);
+      setErrorMessage("");
     }
   };
 
@@ -79,6 +84,12 @@ const BForm = ({ onClose }) => {
       <div className="fixed inset-0 backdrop-blur-sm bg-opacity-50 flex justify-center items-center z-50">
         <div className="bg-white w-full max-w-md p-6 rounded-lg shadow-lg max-h-[90vh] overflow-y-auto">
           <h2 className="text-xl font-bold text-center text-black mb-4">Register Your Ad</h2>
+
+          {errorMessage && (
+              <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded absolute top-4 left-1/2 transform -translate-x-1/2 w-11/12">
+                {errorMessage}
+              </div>
+          )}
 
           <form className="space-y-4" onSubmit={handleSubmit}>
             {/* Image Upload */}
