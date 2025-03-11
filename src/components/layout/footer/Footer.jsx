@@ -32,10 +32,7 @@ const Footer = () => {
           <h3 className="footer-heading text-lg font-semibold mb-3">Contact</h3>
           <ul className="footer-contact space-y-3 ">
            
-            <li className="flex items-center gap-2">
-              <Phone size={20} className="" /> 
-              +92 322 2155556
-            </li>
+           
             <li className="flex items-center gap-2">
               <Mail size={20} className="" /> 
               myousufk87@gmail.com

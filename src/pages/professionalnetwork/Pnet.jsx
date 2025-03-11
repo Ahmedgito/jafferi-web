@@ -101,7 +101,7 @@ const ProfessionalNetwork = () => {
                       <thead className="sticky top-0 bg-gray-100 z-10">
                       <tr>
                         <th className="text-center p-3 text-black font-semibold">Name</th>
-                        <th className="text-center p-3 text-black font-semibold">Email</th>
+                        <th className="text-center p-3 text-black font-semibold">Job Title</th>
                         <th className="p-3 text-black font-semibold"></th>
                       </tr>
                       </thead>
@@ -109,7 +109,7 @@ const ProfessionalNetwork = () => {
                       {users.map((user, index) => (
                           <tr key={index} className="border-t border-gray-200">
                             <td className="p-3 text-gray-800 text-center">{user.name}</td>
-                            <td className="p-3 text-gray-800 text-center">{user.email}</td>
+                            <td className="p-3 text-gray-800 text-center">{user.JobTitle}</td>
                             <td className="p-3 text-right">
                               <button onClick={() => setSelectedUser(user)}>
                                 <PButton />

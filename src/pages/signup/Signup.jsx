@@ -187,6 +187,7 @@ const Form = () => {
                     <option selected disabled>Select An Option</option>
                     <option value="Yes">Yes</option>
                     <option value="No">No</option>
+                    <option value="Student">Student</option>
                   </select>
                   {errors.mentorship && (
                       <p className="text-red-500 text-xs mt-1">{errors.mentorship}</p>
@@ -265,7 +266,7 @@ const Form = () => {
                       onChange={handleChange}
                       required
                   >
-                    <option value=""></option>
+                    <option selected disabled>Select An Option</option>
                     <option value="Agriculture, Environment & Sustainability">
                       Agriculture, Environment & Sustainability
                     </option>

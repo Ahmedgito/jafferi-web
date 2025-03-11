@@ -46,7 +46,7 @@ const Header = () => {
             <Link to="/" className="text-white hover:text-gray-300">Home</Link>
             {isAuthenticated ? (
                 <>
-                  <Link to="/businessnetwork" className="text-white hover:text-gray-300">Business Network</Link>
+                  <Link to="/businessnetwork" className="text-white hover:text-gray-300">Business & Services</Link>
                   {availableRoutes.includes("/professionalnetwork") && (
                       <Link to="/professionalnetwork" className="text-white hover:text-gray-300">Professional Network</Link>
                   )}
