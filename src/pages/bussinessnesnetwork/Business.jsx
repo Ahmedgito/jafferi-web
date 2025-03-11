@@ -10,7 +10,7 @@ const Business = () => {
     const [fullSizeImage, setFullSizeImage] = useState(null);
     const { token } = useSelector((state) => state.auth);
     const apiUrl = import.meta.env.VITE_API_URL;
-    const imageBaseUrl = "https://api.jaferialliance.com/uploads"; // Image base URL
+    const imageBaseUrl = "https://api.jaferialliance.com/uploads/"; // Image base URL
 
     useEffect(() => {
         const fetchAds = async () => {
