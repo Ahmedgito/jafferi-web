@@ -7,19 +7,34 @@ const Business = () => {
   const [ads, setAds] = useState([]);
   const [activeAd, setActiveAd] = useState(null);
   const [showAdRegister, setShowAdRegister] = useState(false);
-  const [fullSizeImage, setFullSizeImage] = useState(null); // State for full-size image
+  const [fullSizeImage, setFullSizeImage] = useState(null);
   const { token } = useSelector((state) => state.auth);
   const apiUrl = import.meta.env.VITE_API_URL;
+  const imageBaseUrl = "https://api.jaferialliance.com"; // Image base URL
 
   useEffect(() => {
     const fetchAds = async () => {
       try {
-        const response = await axios.get(`${apiUrl}/admin/get-business-network?status_all=approved`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-        setAds(response.data);
+        const response = await axios.get(
+            `${apiUrl}/admin/get-business-network?status_all=approved`,
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            }
+        );
+
+        // Parse image_url field safely and prepend base URL if necessary
+        const formattedAds = response.data?.data.map(ad => ({
+          ...ad,
+          images: (ad.image_url && ad.image_url.startsWith("["))
+              ? JSON.parse(ad.image_url).map(img => img.startsWith("http") ? img : `${imageBaseUrl}${img}`)
+              : ad.image_url && ad.image_url !== "not found"
+                  ? [ad.image_url.startsWith("http") ? ad.image_url : `${imageBaseUrl}${ad.image_url}`]
+                  : [] // If "not found" or empty, assign an empty array
+        })) || [];
+
+        setAds(formattedAds);
       } catch (error) {
         console.error("Error fetching ads:", error);
       }
@@ -66,7 +81,7 @@ const Business = () => {
                       className="flex items-center p-4 border rounded-lg shadow-md hover:bg-gray-100 transition"
                   >
                     <img
-                        src={ad.images[0]}
+                        src={ad.images?.length > 0 ? ad.images[0] : "https://placehold.co/300?text=No+Image"}
                         alt={ad.title}
                         className="w-24 h-24 object-cover rounded-md"
                     />
@@ -88,17 +103,21 @@ const Business = () => {
                   </button>
 
                   {/* Image Carousel */}
-                  <div className="flex overflow-x-auto space-x-2">
-                    {activeAd.images.map((img, index) => (
-                        <img
-                            key={index}
-                            src={img}
-                            alt={`Ad Image ${index + 1}`}
-                            className="w-24 h-24 object-cover rounded-md border cursor-pointer"
-                            onClick={() => setFullSizeImage(img)} // Open full-size image
-                        />
-                    ))}
-                  </div>
+                  {activeAd.images?.length > 0 ? (
+                      <div className="flex overflow-x-auto space-x-2">
+                        {activeAd.images.map((img, index) => (
+                            <img
+                                key={index}
+                                src={img}
+                                alt={`Ad Image ${index + 1}`}
+                                className="w-24 h-24 object-cover rounded-md border cursor-pointer"
+                                onClick={() => setFullSizeImage(img)}
+                            />
+                        ))}
+                      </div>
+                  ) : (
+                      <p className="text-gray-500 text-center">No images available</p>
+                  )}
 
                   <h3 className="text-2xl text-center text-[#003505] font-bold mt-4">
                     {activeAd.title}
@@ -112,26 +131,14 @@ const Business = () => {
 
                   {/* Price */}
                   <p className="text-xl font-bold text-green-700 mt-4">
-                    {activeAd.price}
+                    {activeAd.price_offer || "N/A"}
                   </p>
 
                   {/* Contact Details */}
                   <div className="mt-4 p-3 bg-gray-100 rounded-lg">
-                    <p className="text-gray-700">
-                      📍 <strong>Location:</strong> {activeAd.location}
-                    </p>
-                    <p className="text-gray-700">
-                      📧 <strong>Email:</strong>{" "}
-                      <a href={`mailto:${activeAd.contactEmail}`} className="text-blue-600">
-                        {activeAd.contactEmail}
-                      </a>
-                    </p>
-                    <p className="text-gray-700">
-                      📞 <strong>Phone:</strong>{" "}
-                      <a href={`tel:${activeAd.contactPhone}`} className="text-blue-600">
-                        {activeAd.contactPhone}
-                      </a>
-                    </p>
+                    <p className="text-gray-700">📍 <strong>Location:</strong> {activeAd.location || "N/A"}</p>
+                    <p className="text-gray-700">📧 <strong>Email:</strong> <a href={`mailto:${activeAd.contact_email}`} className="text-blue-600">{activeAd.contact_email || "N/A"}</a></p>
+                    <p className="text-gray-700">📞 <strong>Phone:</strong> <a href={`tel:${activeAd.contact_phone}`} className="text-blue-600">{activeAd.contact_phone || "N/A"}</a></p>
                   </div>
                 </div>
               </div>
@@ -150,9 +157,6 @@ const Business = () => {
                 <img src={fullSizeImage} alt="Full Size Preview" className="max-w-full max-h-full" />
               </div>
           )}
-
-          {/* Ad Registration Popup */}
-          {showAdRegister && <AdRegisterPopup onClose={() => setShowAdRegister(false)} />}
         </div>
       </>
   );
