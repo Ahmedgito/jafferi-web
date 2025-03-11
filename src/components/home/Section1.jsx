@@ -23,7 +23,7 @@ const Section1 = () => {
       </style>
 
       {/* Main Section */}
-      <div className="flex flex-col md:flex-row items-center justify-between min-h-[50vh]  text-white px-8 md:px-40 py-4  ">
+      <div className="flex flex-col md:flex-row items-center justify-between min-h-[50vh] mt-5  text-white px-8 md:px-40 py-4  ">
         {/* Left Content */}
         <div className=" md:w-1/2">
           <h2 className="text-3xl md:text-5xl  font-bold mb-4">Our Mission</h2>
