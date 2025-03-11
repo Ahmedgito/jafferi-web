@@ -8,13 +8,15 @@ const Business = () => {
     const [activeAd, setActiveAd] = useState(null);
     const [showAdRegister, setShowAdRegister] = useState(false);
     const [fullSizeImage, setFullSizeImage] = useState(null);
+    const [loading, setLoading] = useState(true); // ✅ New Loading State
     const { token } = useSelector((state) => state.auth);
     const apiUrl = import.meta.env.VITE_API_URL;
-    const imageBaseUrl = "https://api.jaferialliance.com"; // Image base URL
+    const imageBaseUrl = "https://api.jaferialliance.com/uploads/"; // Image base URL
 
     useEffect(() => {
         const fetchAds = async () => {
             try {
+                setLoading(true); // ✅ Start Loading
                 const response = await axios.get(
                     `${apiUrl}/admin/get-business-network?status_all=approved`,
                     {
@@ -37,6 +39,8 @@ const Business = () => {
                 setAds(formattedAds);
             } catch (error) {
                 console.error("Error fetching ads:", error);
+            } finally {
+                setLoading(false); // ✅ Stop Loading
             }
         };
 
@@ -71,25 +75,33 @@ const Business = () => {
                     Business Network
                 </h2>
 
-                <div className="flex flex-col justify-center md:flex-row gap-6">
-                    {/* Ads List */}
-                    <div className="w-full md:w-1/3 flex flex-col gap-4">
-                        {ads.map((ad) => (
-                            <button
-                                key={ad.id}
-                                onClick={() => setActiveAd(ad)}
-                                className="flex items-center p-4 border rounded-lg shadow-md hover:bg-gray-100 transition"
-                            >
-                                <img
-                                    src={ad.images?.length > 0 ? ad.images[0] : "https://placehold.co/300?text=No+Image"}
-                                    alt={ad.title}
-                                    className="w-24 h-24 object-cover rounded-md"
-                                />
-                                <span className="ml-6 text-lg font-semibold">{ad.title}</span>
-                            </button>
-                        ))}
+                {/* ✅ Show Loading While Fetching Data */}
+                {loading ? (
+                    <div className="flex justify-center items-center">
+                        <div className="loader ease-linear rounded-full border-4 border-t-4 border-gray-200 h-12 w-12"></div>
+                        <span className="ml-3 text-gray-500 text-lg">Loading Ads...</span>
                     </div>
-                </div>
+                ) : (
+                    <div className="flex flex-col justify-center md:flex-row gap-6">
+                        {/* Ads List */}
+                        <div className="w-full md:w-1/3 flex flex-col gap-4">
+                            {ads.map((ad) => (
+                                <button
+                                    key={ad.id}
+                                    onClick={() => setActiveAd(ad)}
+                                    className="flex items-center p-4 border rounded-lg shadow-md hover:bg-gray-100 transition"
+                                >
+                                    <img
+                                        src={ad.images?.length > 0 ? ad.images[0] : "https://placehold.co/300?text=No+Image"}
+                                        alt={ad.title}
+                                        className="w-24 h-24 object-cover rounded-md"
+                                    />
+                                    <span className="ml-6 text-lg font-semibold">{ad.title}</span>
+                                </button>
+                            ))}
+                        </div>
+                    </div>
+                )}
 
                 {/* Ad Details Modal */}
                 {activeAd && (
@@ -144,19 +156,6 @@ const Business = () => {
                     </div>
                 )}
 
-                {/* Full-Size Image Preview with Close Button */}
-                {fullSizeImage && (
-                    <div className="fixed inset-0 flex justify-center items-center bg-transparent backdrop-blur-md bg-opacity-80 z-50">
-                        <button
-                            className="absolute top-5 right-5 text-white text-3xl font-bold bg-[#003505] rounded-full p-2 hover:bg-gray-700 transition"
-                            onClick={() => setFullSizeImage(null)}
-                        >
-                            ✕
-                        </button>
-
-                        <img src={fullSizeImage} alt="Full Size Preview" className="max-w-full max-h-full" />
-                    </div>
-                )}
                 {/* Ad Registration Popup */}
                 {showAdRegister && <AdRegisterPopup onClose={() => setShowAdRegister(false)} />}
             </div>
