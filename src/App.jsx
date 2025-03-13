@@ -9,6 +9,7 @@ import Contact from "./pages/contact/Contact";
 import Legalass from "./pages/legalassistance/Legalass";
 import VirtualClinic from "./pages/virtualclinic/virtualclinic";
 import Business from "./pages/bussinessnesnetwork/Business";
+import BusinessGroup from "./pages/business-group/BusniessGroup";
 import Admin from "./pages/admin/admin";
 import PrivateRoute from './routes/PrivateRoute.jsx';
 import PublicRoute from "./routes/PublicRoute.jsx";
@@ -43,6 +44,8 @@ function App() {
           <Route path="/businessnetwork" element={<PrivateRoute allowedIndustries={requiredIndustries.professionalNetwork}> <Business /> </PrivateRoute>} />
           <Route path="/legalassistance" element={<PrivateRoute allowedIndustries={requiredIndustries.legalAssistance}> <Legalass /> </PrivateRoute>} />
           <Route path="/virtualclinic" element={<PrivateRoute allowedIndustries={requiredIndustries.virtualClinic}> <VirtualClinic/> </PrivateRoute>} />
+          <Route path="/business" element={<BusinessGroup/>} />
+
           <Route path="/signup" element={<PublicRoute><Signup /></PublicRoute>} />
           <Route path="/business-signup" element={<PublicRoute><BusinessSignup/></PublicRoute>} />
           <Route path="/signin" element={<PublicRoute><Signin /></PublicRoute>} />
