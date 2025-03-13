@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Button = () => {
+const Button = ({text}) => {
   return (
     <StyledWrapper>
-      <button> Join Our Network
+      <button> {text}
       </button>
     </StyledWrapper>
   );

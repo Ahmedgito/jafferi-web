@@ -25,13 +25,17 @@ const Section1 = () => {
       {/* Main Section */}
       <div className="flex flex-col md:flex-row items-center justify-between min-h-[50vh] mt-5  text-white px-8 md:px-40 py-4  ">
         {/* Left Content */}
-        <div className=" md:w-1/2">
+        <div className=" md:w-1/2 -mt-10">
           <h2 className="text-3xl md:text-5xl  font-bold mb-4">Our Mission</h2>
-          <p className="text-lg mb-6">
+          <p className="text-lg mb-4">
             The mission of Jaferi Alliance is to provide a platform to encourage professional collaboration between members of the Jaferia community. It’s a platform for Shia Muslims to connect and share resources which would benefit the members of the community in continuous growth.
           </p>
-          <button onClick={() => navigate("/signup")} className="">
-            <Homebutton />
+          <button onClick={() => navigate("/signup")} className="mb-1">
+            <Homebutton text={"Join our network"} />
+          </button>
+          <br />
+          <button onClick={() => navigate("/business-signup")} className="mt-1">
+            <Homebutton text={"Register your Business!"} />
           </button>
         </div>
 

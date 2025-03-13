@@ -335,33 +335,33 @@ const Form = () => {
                 />
               </div>
 
-              {/* Submit Button */}
-              <div className="mt-5">
-                <button
-                    className="py-2 px-4 bg-green-700 hover:bg-green-900 focus:ring-green-500 focus:ring-offset-green-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg flex items-center justify-center"
-                    type="submit"
-                    onClick={handleSubmit}
-                    disabled={isLoading} // Disable button when loading
-                >
-                  {isLoading ? (
-                      <div className="spinner"></div> // Show spinner when loading
-                  ) : (
-                      "Sign up"
-                  )}
-                </button>
-              </div>
+                {/* Submit Button */}
+                <div className="mt-5">
+                  <button
+                      className="py-2 px-4 bg-green-700 hover:bg-green-900 focus:ring-green-500 focus:ring-offset-green-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg flex items-center justify-center"
+                      type="submit"
+                      onClick={handleSubmit}
+                      disabled={isLoading} // Disable button when loading
+                  >
+                    {isLoading ? (
+                        <div className="spinner"></div> // Show spinner when loading
+                    ) : (
+                        "Sign up"
+                    )}
+                  </button>
+                </div>
 
-              {/* Login Redirect */}
-              <div className="flex items-center justify-between mt-4">
-                <span className="w-1/5 border-b dark:border-gray-600 md:w-1/4" />
-                <a
-                    className="text-xs text-gray-500 uppercase font-bold dark:text-gray-800 cursor-pointer hover:underline"
-                    onClick={() => navigate("/signin")}
-                >
-                  Have an account? Log in
-                </a>
-                <span className="w-1/5 border-b dark:border-gray-600 md:w-1/4" />
-              </div>
+                {/* Login Redirect */}
+                <div className="flex items-center justify-between mt-4">
+                  <span className="w-1/5 border-b dark:border-gray-600 md:w-1/4" />
+                  <a
+                      className="text-xs text-gray-500 uppercase font-bold dark:text-gray-800 cursor-pointer hover:underline"
+                      onClick={() => navigate("/signin")}
+                  >
+                    Have an account? Log in
+                  </a>
+                  <span className="w-1/5 border-b dark:border-gray-600 md:w-1/4" />
+                </div>
             </div>
           </div>
         </div>

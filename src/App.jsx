@@ -3,6 +3,7 @@ import Layout from "./components/layout/Layout";
 import Home from "./pages/home/Home";
 import Pnet from "./pages/professionalnetwork/Pnet" ;
 import Signin from "./pages/signin/Signin";
+import BusinessSignup from "./pages/signup/BusinessSignup.jsx ";
 import Signup from "./pages/signup/Signup";
 import Contact from "./pages/contact/Contact";
 import Legalass from "./pages/legalassistance/Legalass";
@@ -43,6 +44,7 @@ function App() {
           <Route path="/legalassistance" element={<PrivateRoute allowedIndustries={requiredIndustries.legalAssistance}> <Legalass /> </PrivateRoute>} />
           <Route path="/virtualclinic" element={<PrivateRoute allowedIndustries={requiredIndustries.virtualClinic}> <VirtualClinic/> </PrivateRoute>} />
           <Route path="/signup" element={<PublicRoute><Signup /></PublicRoute>} />
+          <Route path="/business-signup" element={<PublicRoute><BusinessSignup/></PublicRoute>} />
           <Route path="/signin" element={<PublicRoute><Signin /></PublicRoute>} />
           <Route path="/contact" element={<Contact />} />
 
