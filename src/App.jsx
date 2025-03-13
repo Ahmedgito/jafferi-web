@@ -3,7 +3,7 @@ import Layout from "./components/layout/Layout";
 import Home from "./pages/home/Home";
 import Pnet from "./pages/professionalnetwork/Pnet" ;
 import Signin from "./pages/signin/Signin";
-import BusinessSignup from "./pages/signup/BusinessSignup.jsx ";
+import BusinessSignup from "./pages/signup/BusinessSignup.jsx";
 import Signup from "./pages/signup/Signup";
 import Contact from "./pages/contact/Contact";
 import Legalass from "./pages/legalassistance/Legalass";
