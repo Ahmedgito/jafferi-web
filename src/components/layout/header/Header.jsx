@@ -55,7 +55,7 @@ const Header = () => {
               </span>
               <div className="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <Link to="/businessnetwork" className="block px-4 py-2 text-[#003505] hover:bg-gray-200 transition">Business Network</Link>
-                <Link to="/ads-services" className="block px-4 py-2 text-[#003505] hover:bg-gray-200 transition">Ads and Services</Link>
+                <Link to="/business" className="block px-4 py-2 text-[#003505] hover:bg-gray-200 transition">Ads and Services</Link>
               </div>
             </div>
           )}
