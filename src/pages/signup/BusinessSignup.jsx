@@ -20,7 +20,7 @@ const Form2 = () => {
     confirmConnections: false,
   });
 
-  const apiUrl = import.meta.env.VITE_API_URL || "https://yourapi.com"; // Change this to your actual API URL
+  const apiUrl = import.meta.env.VITE_API_URL ;
 
   // 🔹 VALIDATION FUNCTION
   const validateForm = () => {
@@ -195,6 +195,7 @@ const Form2 = () => {
               type="url"
               id="website_url"
               value={formData.website_url}
+              onChange={handleChange}
             />
           </div>
 
