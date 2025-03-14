@@ -192,7 +192,7 @@ const Form2 = () => {
             </label>
             <input
               className="border rounded-lg px-3 py-2 mt-1 mb-2 text-sm w-full focus:border-green-500 focus:ring-2 focus:ring-green-500"
-              type="url"
+              type="text"
               id="website_url"
               value={formData.website_url}
               onChange={handleChange}
