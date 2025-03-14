@@ -73,17 +73,17 @@ const Admin = () => {
 
     const handleApprove = async (id, type) => {
         const approveEndpoint = type === "businessGroups"
-            ? "/admin/approve-business-network"
-            : "/admin/approve-business-group";
-
-        await axios.post(`${apiUrl}${approveEndpoint}`, { id }, { headers: { Authorization: `Bearer ${token}` } });
-        setData(prev => prev.filter(item => item.id !== id));
+            ? "/admin/approve-business-group"
+            : "/admin/approve-business-network";
+        console.log(approveEndpoint)
+        // await axios.post(`${apiUrl}${approveEndpoint}`, { id }, { headers: { Authorization: `Bearer ${token}` } });
+        // setData(prev => prev.filter(item => item.id !== id));
     };
 
     const handleReject = async (id, type) => {
         const rejectEndpoint = type === "businessGroups"
-            ? "/admin/reject-business-network"
-            : "/admin/reject-business-group";
+            ? "/admin/reject-business-group"
+            : "/admin/reject-business-network";
 
         await axios.post(`${apiUrl}${rejectEndpoint}`, { id }, { headers: { Authorization: `Bearer ${token}` } });
         setData(prev => prev.filter(item => item.id !== id));
@@ -150,8 +150,8 @@ const Admin = () => {
                         <td>{renderStatusBadge(item.status, 'businesses')}</td>
                         {activeTab === "pendingBusinesses" && (
                             <td className="space-x-2">
-                                <button onClick={() => handleApprove(item.id)} className="bg-green-500 text-white px-3 py-1 rounded">Approve</button>
-                                <button onClick={() => handleReject(item.id)} className="bg-red-500 text-white px-3 py-1 rounded">Reject</button>
+                                <button onClick={() => handleApprove(item.id,'businesses')} className="bg-green-500 text-white px-3 py-1 rounded">Approve</button>
+                                <button onClick={() => handleReject(item.id, 'businesses')} className="bg-red-500 text-white px-3 py-1 rounded">Reject</button>
                             </td>
                         )}
                     </>
@@ -163,8 +163,8 @@ const Admin = () => {
                             <td>{renderStatusBadge(item.status)}</td>
                             {activeTab === "pendingBusinessGroups" && (
                                 <td className="space-x-2">
-                                    <button onClick={() => handleApprove(item.id)} className="bg-green-500 text-white px-3 py-1 rounded">Approve</button>
-                                    <button onClick={() => handleReject(item.id)} className="bg-red-500 text-white px-3 py-1 rounded">Reject</button>
+                                    <button onClick={() => handleApprove(item.id, 'businessGroups')} className="bg-green-500 text-white px-3 py-1 rounded">Approve</button>
+                                    <button onClick={() => handleReject(item.id, 'businessGroups')} className="bg-red-500 text-white px-3 py-1 rounded">Reject</button>
                                 </td>
                             )}
                         </>
