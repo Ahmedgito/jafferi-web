@@ -88,6 +88,21 @@ const Admin = () => {
         setData(prev => prev.filter(item => item.id !== id));
     };
 
+    const handleDelete = async (id, type) => {
+        let rejectEndpoint = "";
+
+        if (type === "businesses") {
+            rejectEndpoint = "/admin/delete-ads";
+        } else if (type === "businessGroups") {
+            rejectEndpoint = "/admin/delete-business";
+        } else {
+            rejectEndpoint = "/admin/delete-user";
+        }
+
+        await axios.post(`${apiUrl}${rejectEndpoint}`, { id }, { headers: { Authorization: `Bearer ${token}` } });
+        setData(prev => prev.filter(item => item.id !== id));
+    }
+
     const renderTableHeaders = () => (
         <tr className="bg-white-100 border-b text-sm text-gray-600 uppercase">
             <th className="py-3 px-4">#</th>
@@ -106,6 +121,7 @@ const Admin = () => {
                     <th className="py-3 px-4">Location</th>
                     <th className="py-3 px-4">Status</th>
                     {activeTab === "pendingBusinesses" && <th className="py-3 px-4">Action</th>}
+                    {activeTab === "businesses" && <th className="py-3 px-4">Action</th>}
                 </>
             ):
                 (activeTab === "businessGroups" || activeTab === "pendingBusinessGroups") ? (
@@ -115,12 +131,14 @@ const Admin = () => {
                         <th className="py-3 px-4">website</th>
                         <th className="py-3 px-4">Status</th>
                         {activeTab === "pendingBusinessGroups" && <th className="py-3 px-4">Action</th>}
+                        {activeTab === "businessGroups" && <th className="py-3 px-4">Action</th>}
                     </>
                 ): (
                 <>
                     <th className="py-3 px-4">Name</th>
                     <th className="py-3 px-4">Email</th>
                     <th className="py-3 px-4">Role</th>
+                    <th>Action</th>
                 </>
             )}
         </tr>
@@ -147,6 +165,11 @@ const Admin = () => {
                         <td>{item.contact_email}</td>
                         <td>{item.location}</td>
                         <td>{renderStatusBadge(item.status, 'businesses')}</td>
+                        {activeTab === "businesses" && (
+                            <td>
+                                <button onClick={() => handleDelete(item.id,'businesses')} className="bg-red-500 text-white px-3 py-1 rounded">Delete</button>
+                            </td>
+                        )}
                         {activeTab === "pendingBusinesses" && (
                             <td className="space-x-2">
                                 <button onClick={() => handleApprove(item.id,'businesses')} className="bg-green-500 text-white px-3 py-1 rounded">Approve</button>
@@ -160,6 +183,11 @@ const Admin = () => {
                             <td>{item.description}</td>
                             <td>{item.website}</td>
                             <td>{renderStatusBadge(item.status)}</td>
+                            {activeTab === "businessGroups" && (
+                                <td>
+                                    <button onClick={() => handleDelete(item.id,'businessGroups')} className="bg-red-500 text-white px-3 py-1 rounded">Delete</button>
+                                </td>
+                            )}
                             {activeTab === "pendingBusinessGroups" && (
                                 <td className="space-x-2">
                                     <button onClick={() => handleApprove(item.id, 'businessGroups')} className="bg-green-500 text-white px-3 py-1 rounded">Approve</button>
@@ -173,6 +201,9 @@ const Admin = () => {
                         <td>{item.name}</td>
                         <td>{item.email}</td>
                         <td>{item.role}</td>
+                        <td>
+                            <button onClick={() => handleDelete(item.id)} className="bg-red-500 text-white px-3 py-1 rounded">Delete</button>
+                        </td>
                     </>
                 )}
             </tr>

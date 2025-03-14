@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import PButton from "../../components/uicomponents/PButton.jsx";
 import axios from "axios";
+import ContactForm from "../../components/uicomponents/BGForm.jsx";
 
 const BusinessGroup = () => {
     const [selectedUser, setSelectedUser] = useState(null);
@@ -52,6 +53,7 @@ const BusinessGroup = () => {
                                         <th className="text-center p-3 text-black font-semibold">Name</th>
                                         <th className="text-center p-3 text-black font-semibold">Description</th>
                                         <th className="text-center p-3 text-black font-semibold">Website</th>
+                                        <th>Action</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -67,6 +69,11 @@ const BusinessGroup = () => {
                                                 ) : (
                                                     "N/A"
                                                 )}
+                                            </td>
+                                            <td>
+                                                <button onClick={() => setSelectedUser(group)}>
+                                                    <PButton />
+                                                </button>
                                             </td>
                                         </tr>
                                     ))}
@@ -101,6 +108,10 @@ const BusinessGroup = () => {
                     )}
                 </div>
             </div>
+
+            {selectedUser && <ContactForm user={selectedUser} onClose={() => setSelectedUser(null)} />}
+
+
         </div>
     );
 };
