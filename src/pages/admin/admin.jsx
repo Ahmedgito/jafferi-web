@@ -75,9 +75,8 @@ const Admin = () => {
         const approveEndpoint = type === "businessGroups"
             ? "/admin/approve-business-group"
             : "/admin/approve-business-network";
-        console.log(approveEndpoint)
-        // await axios.post(`${apiUrl}${approveEndpoint}`, { id }, { headers: { Authorization: `Bearer ${token}` } });
-        // setData(prev => prev.filter(item => item.id !== id));
+        await axios.post(`${apiUrl}${approveEndpoint}`, { id }, { headers: { Authorization: `Bearer ${token}` } });
+        setData(prev => prev.filter(item => item.id !== id));
     };
 
     const handleReject = async (id, type) => {
