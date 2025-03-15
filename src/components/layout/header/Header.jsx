@@ -20,6 +20,7 @@ const allPages = ["/professionalnetwork", "/legalassistance", "/virtualclinic", 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobileDropdownOpen, setIsMobileDropdownOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false); // For Desktop Dropdown
   const { isAuthenticated, industry, role } = useSelector((state) => state.auth);
 
   const toggleMobileMenu = () => {
@@ -30,6 +31,10 @@ const Header = () => {
     setIsMobileDropdownOpen(!isMobileDropdownOpen);
   };
 
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+
   let availableRoutes = [];
   if (role === "helper") {
     availableRoutes = allPages;
@@ -38,7 +43,7 @@ const Header = () => {
   }
 
   return (
-    <nav className="bg-[#003505] p-4 fixed w-full top-0 left-0 z-50 shadow-md">
+    <nav className="bg-[#003505] p-2 fixed w-full top-0 left-0 z-50 shadow-md">
       <div className="flex justify-between items-center max-w-7xl mx-auto">
         <Link to="/">
           <img src={logo} alt="Logo" className="h-24 w-36" />
@@ -50,13 +55,21 @@ const Header = () => {
 
           {isAuthenticated && (
             <div className="relative group">
-              <span className="text-white hover:text-gray-300 cursor-pointer transition transform hover:scale-105">
+              <button
+                onClick={toggleDropdown}
+                className="flex items-center text-white hover:text-gray-300 cursor-pointer transition transform hover:scale-105"
+              >
                 Business & Services
-              </span>
-              <div className="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <Link to="/businessnetwork" className="block px-4 py-2 text-[#003505] hover:bg-gray-200 transition">Business Network</Link>
-                <Link to="/business" className="block px-4 py-2 text-[#003505] hover:bg-gray-200 transition">Ads and Services</Link>
+                <svg className={`w-4 h-4 ml-1 transition-transform ${isDropdownOpen ? "rotate-180" : "rotate-0"}`} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div className={`absolute left-0 mt-2 w-48 bg-white shadow-xl rounded-lg border-b-4 border-[#003505] transition-all duration-300 ${isDropdownOpen ? "opacity-100 visible translate-y-0" : "opacity-0 invisible translate-y-2"}`}>
+                <Link to="/businessnetwork" className="block px-4 py-2 text-[#003505] border-b border-gray-300 hover:bg-gray-200 transition">Ads and Services</Link>
+                <Link to="/business" className="block px-4 py-2 text-[#003505] border-b border-gray-300 hover:bg-gray-200 transition">Business Directory</Link>
+                <Link to="/" className="block px-4 py-2 text-stone-500 hover:bg-gray-200 transition">Job Board - <br /> Coming Soon</Link>
               </div>
+
             </div>
           )}
 
@@ -100,13 +113,13 @@ const Header = () => {
           <div>
             <button onClick={toggleMobileDropdown} className="block w-full text-left text-white py-2 flex justify-between items-center">
               Business & Services
-              <svg className={`w-4 h-4 transform ${isMobileDropdownOpen ? "rotate-180" : "rotate-0"} transition-transform`} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className={`w-4 h-4 transition-transform ${isMobileDropdownOpen ? "rotate-180" : "rotate-0"}`} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
               </svg>
             </button>
             <div className={`ml-4 transition-all overflow-hidden ${isMobileDropdownOpen ? "max-h-40 opacity-100" : "max-h-0 opacity-0"} duration-300`}>
-              <Link to="/businessnetwork" className="block text-white py-2 transition hover:text-gray-300" onClick={toggleMobileMenu}>Business Network</Link>
-              <Link to="/ads-services" className="block text-white py-2 transition hover:text-gray-300" onClick={toggleMobileMenu}>Ads and Services</Link>
+              <Link to="/businessnetwork" className="block text-white py-2 transition hover:text-gray-300" onClick={toggleMobileMenu}>Ads and Services</Link>
+              <Link to="/ads-services" className="block text-white py-2 transition hover:text-gray-300" onClick={toggleMobileMenu}>Business Directory</Link>
             </div>
           </div>
         )}
@@ -116,9 +129,6 @@ const Header = () => {
         )}
         {availableRoutes.includes("/legalassistance") && (
           <Link to="/legalassistance" className="block text-white py-2 transition hover:text-gray-300" onClick={toggleMobileMenu}>Legal Assistance</Link>
-        )}
-        {availableRoutes.includes("/virtualclinic") && (
-          <Link to="/virtualclinic" className="block text-white py-2 transition hover:text-gray-300" onClick={toggleMobileMenu}>Virtual Clinic</Link>
         )}
         <Link to="/contact" className="block text-white py-2 transition hover:text-gray-300" onClick={toggleMobileMenu}>Contact Us</Link>
 
@@ -131,4 +141,3 @@ const Header = () => {
 };
 
 export default Header;
-  

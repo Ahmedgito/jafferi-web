@@ -10,8 +10,7 @@ const Footer = () => {
         <div className="footer-section w-full md:w-1/3">
           <img src={logo} alt="Logo" className="footer-logo h-18 w-28 mb-4" />
           <p className="footer-description text-white text-sm">
-            When Stan Britten established BritKare in 1995, he did so with a true 
-            desire to assist the medical community with the quality care of their desire.
+          Jaferi Alliance is more than a platform — it's a thriving community fostering growth, collaboration, and support for all members.
           </p>
         </div>
 
@@ -19,11 +18,11 @@ const Footer = () => {
         <div className="footer-section w-full md:w-1/3">
           <h3 className="footer-heading text-lg font-semibold mb-3">Links</h3>
           <ul className="footer-links space-y-2 text-gray-300">
-            <li className="hover:text-blue-400 cursor-pointer">› Home</li>
-            <li className="hover:text-blue-400 cursor-pointer">› Professional Network</li>
-            <li className="hover:text-blue-400 cursor-pointer">› Medical Assistance</li>
-            <li className="hover:text-blue-400 cursor-pointer">› Legal Assistance</li>
-            <li className="hover:text-blue-400 cursor-pointer">› Contact Us</li>
+            <li className="hover:text-green-400 cursor-pointer">› Home</li>
+            <li className="hover:text-green-400 cursor-pointer">› Professional Network</li>
+            <li className="hover:text-green-400 cursor-pointer">› Medical Assistance</li>
+            <li className="hover:text-green-400 cursor-pointer">› Legal Assistance</li>
+            <li className="hover:text-green-400 cursor-pointer">› Contact Us</li>
           </ul>
         </div>
 
@@ -35,7 +34,7 @@ const Footer = () => {
            
             <li className="flex items-center gap-2">
               <Mail size={20} className="" /> 
-              myousufk87@gmail.com
+              jaferialliance@gmail.com
             </li>
             <li className="flex items-start gap-2">
               <MapPin size={20} className="" /> 

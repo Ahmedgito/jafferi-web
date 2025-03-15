@@ -18,27 +18,27 @@ const Section2 = () => {
       </h2>
     </div>
                 <p className="text-center text-gray-600 mb-8 max-w-2xl mx-auto">
-                    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock.
+                Accessible Healthcare for the Jaferia Community
                 </p>
  
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-center place-items-center">
             <Card
-  heading="Explore Nature"
+  heading="Joen Doe"
   paragraph="Discover the beauty of the outdoors with stunning landscapes and adventures."
   image={Doctor1}
 />
 <Card
-  heading="Explore Nature"
+  heading="Adam Smith"
   paragraph="Discover the beauty of the outdoors with stunning landscapes and adventures."
   image={Doctor2}
 />
 <Card
-  heading="Explore Nature"
+  heading="Joen Doe"
   paragraph="Discover the beauty of the outdoors with stunning landscapes and adventures."
   image={Doctor1}
 />
 <Card
-  heading="Explore Nature"
+  heading="Sarah Larson"
   paragraph="Discover the beauty of the outdoors with stunning landscapes and adventures."
   image={Doctor3}
 />
