@@ -75,19 +75,20 @@ const ProfessionalNetwork = () => {
           <div className="w-full max-w-4xl bg-white rounded-lg shadow-lg overflow-hidden border-2 border-[#003505]">
             <h2 className="text-2xl font-bold text-center text-black py-4">Professional Network</h2>
 
-            {/* Industry Filter Dropdown */}
-            <div className="px-4 py-2 flex justify-center">
-              <select
-                  className="p-2 border border-gray-300 rounded"
-                  value={selectedIndustry}
-                  onChange={(e) => setSelectedIndustry(e.target.value)}
-              >
-                <option value="">All Industries</option>
-                {industryTypes.map((industry, index) => (
-                    <option key={index} value={industry}>{industry}</option>
-                ))}
-              </select>
-            </div>
+           {/* Industry Filter Dropdown */}
+<div className="px-4 py-2 flex justify-center">
+  <select
+    className="w-full max-w-xs p-3 border border-green-600 rounded-lg bg-white text-gray-700 shadow-md focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent transition-all duration-200 hover:shadow-lg"
+    value={selectedIndustry}
+    onChange={(e) => setSelectedIndustry(e.target.value)}
+  >
+    <option value="">All Industries</option>
+    {industryTypes.map((industry, index) => (
+      <option key={index} value={industry}>{industry}</option>
+    ))}
+  </select>
+</div>
+
 
             {loading ? (
                 <p className="text-center py-4 text-gray-600">Loading...</p>
