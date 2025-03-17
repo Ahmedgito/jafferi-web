@@ -81,7 +81,7 @@ who you have verified.</p>
                                     <td className="p-3 text-gray-800 text-center">{user.email}</td>
                                     <td className="p-3 text-right">
                                         <button onClick={() => setSelectedUser(user)}>
-                                            <PButton />
+                                            <PButton title="Profile" />
                                         </button>
                                     </td>
                                 </tr>
@@ -98,7 +98,7 @@ who you have verified.</p>
                                 <p className="text-gray-600">{user.email}</p>
                                 <div className="mt-2">
                                     <button onClick={() => setSelectedUser(user)}>
-                                        <PButton />
+                                        <PButton title="Profile" />
                                     </button>
                                 </div>
                             </div>
