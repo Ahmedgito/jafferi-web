@@ -50,26 +50,28 @@ const Admin = () => {
     });
 
     const renderStatusBadge = (status, type) => {
-        console.log(type)
-        if (type === "businesses") {
-            const statusColors = {
-                "pending": "bg-yellow-200 text-yellow-800",
-                "approved": "bg-green-200 text-green-800",
-                "rejected": "bg-red-200 text-red-800",
-            };
-            return <span className={`px-2 py-1 rounded-md text-xs font-semibold ${statusColors[status] || "bg-gray-200"}`}>{status}</span>;
-        } else {
-            // Integer Status: Business Groups
-            const statusColors = {
-                0: "bg-yellow-200 text-yellow-800", // Pending
-                1: "bg-green-200 text-green-800", // Approved
-                2: "bg-red-200 text-red-800", // Rejected
-            };
-            return <span className={`px-2 py-1 rounded-md text-xs font-semibold ${statusColors[status] || "bg-gray-200"}`}>
-                {status === 0 ? "Pending" : status === 1 ? "Approved" : "Rejected"}
-            </span>;
-        }
+        const statusMapping = {
+            "pending": { text: "Pending", color: "bg-yellow-100 text-yellow-800 border border-yellow-400", icon: "⏳" },
+            "approved": { text: "Approved", color: "bg-green-100 text-green-800 border border-green-400", icon: "✅" },
+            "rejected": { text: "Rejected", color: "bg-red-100 text-red-800 border border-red-400", icon: "❌" }
+        };
+    
+        const integerStatusMapping = {
+            0: { text: "Pending", color: "bg-yellow-100 text-yellow-800 border border-yellow-400", icon: "⏳" },
+            1: { text: "Approved", color: "bg-green-100 text-green-800 border border-green-400", icon: "✅" },
+            2: { text: "Rejected", color: "bg-red-100 text-red-800 border border-red-400", icon: "❌" }
+        };
+    
+        const statusData = type === "businesses" ? statusMapping[status] : integerStatusMapping[status];
+    
+        return (
+            <span className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium ${statusData?.color || "bg-gray-100 text-gray-800 border border-gray-400"}`}>
+                <span>{statusData?.icon}</span>
+                <span>{statusData?.text || "Unknown"}</span>
+            </span>
+        );
     };
+    
 
     const handleApprove = async (id, type) => {
         const approveEndpoint = type === "businessGroups"

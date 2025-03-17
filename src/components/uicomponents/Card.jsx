@@ -26,7 +26,7 @@ const Card = ({ heading, paragraph, image }) => {
 
         {/* Button Section */}
         <div className="p-6 pt-0">
-          <PButton/>
+          <PButton text="Contact" />
         </div>
       </div>
     </div>

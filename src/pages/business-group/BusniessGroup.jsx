@@ -72,7 +72,7 @@ const BusinessGroup = () => {
                                             </td>
                                             <td className="p-3 text-center">
                                                 <button onClick={() => setSelectedUser(group)}>
-                                                    <PButton />
+                                                    <PButton text="Profile" />
                                                 </button>
                                             </td>
                                         </tr>
@@ -98,7 +98,7 @@ const BusinessGroup = () => {
                                     </p>
                                     <div className="mt-3 flex justify-end">
                                         <button onClick={() => setSelectedUser(group)}>
-                                            <PButton />
+                                            <PButton text="Profile" />
                                         </button>
                                     </div>
                                 </div>

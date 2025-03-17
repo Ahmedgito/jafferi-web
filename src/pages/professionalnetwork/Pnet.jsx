@@ -124,7 +124,7 @@ const ProfessionalNetwork = () => {
                         </td>
                         <td className="p-3 text-right">
                           <button onClick={() => setSelectedUser(user)}>
-                            <PButton />
+                            <PButton text="Profile" />
                           </button>
                         </td>
                       </tr>

@@ -32,7 +32,7 @@ const UserCard = ({ user, onContactClick, onClose }) => {
         {/* Contact Button */}
         <div className="mt-5 flex justify-center">
           <button onClick={onContactClick}>
-            <PButton />
+            <PButton text="Contact" />
           </button>
         </div>
       </div>
