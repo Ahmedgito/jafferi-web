@@ -1,18 +1,27 @@
 import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { useState, useEffect } from "react";
+import { logout } from "../../../src/store/slices/authSlices.js"; // Adjust the path as needed
 import phone from "../../assets/image.png";
 import Homebutton from "../uicomponents/Homebutton.jsx";
-import { useSelector } from "react-redux";
-import { useState, useEffect } from "react";
 
 const Section1 = () => {
   const navigate = useNavigate();
-  const { isAuthenticated } = useSelector((state) => state.auth); // ✅ Fix: Get isAuthenticated state
+  const dispatch = useDispatch();
+  const { isAuthenticated } = useSelector((state) => state.auth);
 
   // Typewriter Effect for Guest Message
   const text =
     "Note : To gain access to the Professional Network, Businesses & Services, Virtual Clinic, and Legal Assistance, please create a user profile.";
   const [displayText, setDisplayText] = useState("");
   const [index, setIndex] = useState(0);
+  const [redirectToBusinessSignup, setRedirectToBusinessSignup] = useState(false);
+
+  useEffect(() => {
+    if (!isAuthenticated && redirectToBusinessSignup) {
+      navigate("/business-signup");
+    }
+  }, [isAuthenticated, redirectToBusinessSignup, navigate]);
 
   useEffect(() => {
     if (!isAuthenticated && index < text.length) {
@@ -23,6 +32,16 @@ const Section1 = () => {
       return () => clearTimeout(timeout);
     }
   }, [index, text, isAuthenticated]);
+
+  // Handle business registration button
+  const handleBusinessSignup = () => {
+    if (isAuthenticated) {
+      dispatch(logout());
+      setRedirectToBusinessSignup(true);
+    } else {
+      navigate("/business-signup");
+    }
+  };
 
   return (
     <>
@@ -38,10 +57,10 @@ const Section1 = () => {
           }
         `}
       </style>
-      
+
       {/* Main Section */}
-      <div className="flex flex-col md:flex-row items-center justify-between min-h-[50vh] md:mt-2 mt-14 text-white px-8 md:px-40 py-4">
-         
+      <div className="flex flex-col md:flex-row items-center justify-between min-h-[50vh] md:mt-2 mt-10 text-white px-8 md:px-40 py-4">
+        
         {/* Left Content */}
         <div className="md:w-1/2 -mt-10">
           <h2 className="text-3xl md:text-5xl font-bold  mb-4 animate-fade-in">
@@ -55,13 +74,11 @@ const Section1 = () => {
             continuous growth.
           </p>
 
-       
-
           <button onClick={() => navigate("/signup")} className="mb-1">
             <Homebutton text={"Join our network"} />
           </button>
           <br />
-          <button onClick={() => navigate("/business-signup")} className="mt-1">
+          <button onClick={handleBusinessSignup} className="mt-1">
             <Homebutton text={"Register your Business!"} />
           </button>
         </div>
@@ -74,11 +91,11 @@ const Section1 = () => {
         </div>
       </div>
       {!isAuthenticated && (
-            <p className="text-lg md:block hidden text-center text-[#003505] mt-0 font-bold  min-h-[40px]">
-              {displayText}
-              <span className="animate-blink">|</span>
-            </p>
-          )}
+        <p className="text-lg md:block hidden text-center text-[#003505] mt-0 font-bold min-h-[40px]">
+          {displayText}
+          <span className="animate-blink">|</span>
+        </p>
+      )}
     </>
   );
 };
