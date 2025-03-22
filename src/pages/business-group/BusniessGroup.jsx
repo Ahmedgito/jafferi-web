@@ -61,15 +61,21 @@ const BusinessGroup = () => {
                                         <tr key={index} className="border-b border-gray-200 hover:bg-gray-100 transition">
                                             <td className="p-3 text-gray-800">{group.title}</td>
                                             <td className="p-3 text-gray-700">{group.description}</td>
-                                            <td className="p-3 text-blue-600">
-                                                {group.website ? (
-                                                    <a href={group.website} target="_blank" rel="noopener noreferrer" className="hover:underline">
-                                                        {group.website}
-                                                    </a>
-                                                ) : (
-                                                    "N/A"
-                                                )}
-                                            </td>
+                                            <p className="text-blue-600 text-sm mt-2">
+    {group.website ? (
+        <a 
+            href={group.website.startsWith("http") ? group.website : `https://${group.website}`} 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="hover:underline"
+        >
+            {group.website}
+        </a>
+    ) : (
+        "N/A"
+    )}
+</p>
+
                                             <td className="p-3 text-center">
                                                 <button onClick={() => setSelectedUser(group)}>
                                                     <PButton text="Profile" />
@@ -88,14 +94,20 @@ const BusinessGroup = () => {
                                     <h3 className="text-lg font-semibold text-gray-900">{group.title}</h3>
                                     <p className="text-gray-700 text-sm mt-1">{group.description}</p>
                                     <p className="text-blue-600 text-sm mt-2">
-                                        {group.website ? (
-                                            <a href={group.website} target="_blank" rel="noopener noreferrer" className="hover:underline">
-                                                {group.website}
-                                            </a>
-                                        ) : (
-                                            "N/A"
-                                        )}
-                                    </p>
+    {group.website ? (
+        <a 
+            href={group.website.startsWith("http") ? group.website : `https://${group.website}`} 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="hover:underline"
+        >
+            {group.website}
+        </a>
+    ) : (
+        "N/A"
+    )}
+</p>
+
                                     <div className="mt-3 flex justify-end">
                                         <button onClick={() => setSelectedUser(group)}>
                                             <PButton text="Profile" />

@@ -351,17 +351,12 @@ const Form = () => {
                   </button>
                 </div>
 
-                {/* Login Redirect */}
-                <div className="flex items-center justify-between mt-4">
-                  <span className="w-1/5 border-b dark:border-gray-600 md:w-1/4" />
-                  <a
-                      className="text-xs text-gray-500 uppercase font-bold dark:text-gray-800 cursor-pointer hover:underline"
-                      onClick={() => navigate("/signin")}
-                  >
-                    Have an account? Log in
-                  </a>
-                  <span className="w-1/5 border-b dark:border-gray-600 md:w-1/4" />
-                </div>
+                <button
+        className="py-2 mt-2 px-4 bg-[#003505] hover:bg-green-800 text-white w-full rounded-lg font-semibold"
+        onClick={() => navigate("/signin")}
+    >
+        Have an account? Login
+    </button>
             </div>
           </div>
         </div>

@@ -69,7 +69,7 @@ const Business = () => {
                     </button>
                 </div>
 
-                <h2 className="text-4xl font-bold my-10 text-center text-gray-900">Business Network</h2>
+                <h2 className="text-4xl font-bold my-10 text-center text-gray-900">Ads & Services</h2>
 
                 {/* Loading Spinner */}
                {loading ? (
