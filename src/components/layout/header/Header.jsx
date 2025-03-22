@@ -130,6 +130,9 @@ const Header = () => {
         {availableRoutes.includes("/legalassistance") && (
           <Link to="/legalassistance" className="block text-white py-2 transition hover:text-gray-300" onClick={toggleMobileMenu}>Legal Assistance</Link>
         )}
+         {availableRoutes.includes("/virtualclinic") && (
+          <Link to="/virtualclinic" className="block text-white py-2 transition hover:text-gray-300" onClick={toggleMobileMenu}>Virtual Clinic</Link>
+        )}
         <Link to="/contact" className="block text-white py-2 transition hover:text-gray-300" onClick={toggleMobileMenu}>Contact Us</Link>
 
         {isAuthenticated ? <LogoutButton /> : (

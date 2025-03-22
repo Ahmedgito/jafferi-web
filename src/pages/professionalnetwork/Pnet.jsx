@@ -146,7 +146,7 @@ const ProfessionalNetwork = () => {
                     <p className="text-gray-600">{user.email}</p>
                     <div className="mt-2">
                       <button onClick={() => setSelectedUser(user)}>
-                        <PButton />
+                        <PButton text="Profile"  />
                       </button>
                     </div>
                   </div>

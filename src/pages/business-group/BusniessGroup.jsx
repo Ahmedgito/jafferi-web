@@ -36,7 +36,7 @@ const BusinessGroup = () => {
             <style>{`.clip-slant { clip-path: polygon(0 0, 100% 0, 100% 40%, 0 100%); }`}</style>
 
             {/* Main Container */}
-            <div className="w-full max-w-4xl bg-white rounded-lg shadow-lg border-2 border-[#003505] mt-24 p-6 sm:p-8">
+            <div className="w-full max-w-[84rem] bg-white rounded-lg shadow-lg border-2 border-[#003505] mt-24 p-6 sm:p-8">
                 <h2 className="text-2xl font-bold text-center text-black mb-6">Business Directory</h2>
 
                 {loading ? (
