@@ -17,9 +17,9 @@ const Section2 = () => {
         </span>
       </h2>
     </div>
-                <p className="text-center md:text2xl text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+                <h1 className="text-center md:text-3xl font-bold text-lg text-black-600 mb-8 max-w-2xl mx-auto">
                 Coming Soon.
-                </p>
+                </h1>
  
             <div className="grid blur-sm grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-center place-items-center">
             <Card
