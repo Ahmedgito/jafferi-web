@@ -2,12 +2,17 @@ import React, {useEffect, useState} from "react";
 import PButton from "../../components/uicomponents/PButton.jsx";
 import ContactForm from "../../components/uicomponents/LForm.jsx";
 import {useSelector} from "react-redux";
+
+import { useNavigate } from "react-router-dom";
 import axios from "axios"; // Import Contact Form
+import Loader from "../../components/uicomponents/Loader.jsx";
 
 const Legalass = () => {
   const [selectedUser, setSelectedUser] = useState(null); // Stores selected user
     const [loading, setLoading] = useState(true);
     const [users, setUsers] = useState([]);
+
+  const navigate = useNavigate();
 
     const { token } = useSelector((state) => state.auth);
     const apiUrl = import.meta.env.VITE_API_URL;
@@ -50,7 +55,21 @@ const Legalass = () => {
       </style>
 
       {/* Main Container */}
+       
       <div className="w-full flex justify-center py-14 px-4">
+      <div className="fixed inset-0 bg-transparent bg-opacity-50 backdrop-blur-sm flex items-center justify-center z-50">
+        <div className="bg-white p-6 rounded-lg shadow-lg text-center max-w-sm">
+          <Loader/>
+          <h2 className="text-xl font-bold text-gray-800">Coming Soon</h2>
+          <p className="text-gray-600 mt-2">This section is under development.</p>
+          <button
+            onClick={() => navigate("/")}
+            className="mt-4 px-4 py-2 bg-[#003505] text-white rounded-lg hover:bg-green-700 cursor-pointer"
+          >
+            Go Back Home
+          </button>
+        </div>
+      </div>
         <div className="w-full max-w-4xl bg-white rounded-lg shadow-lg overflow-hidden border-2 border-[#003505]">
           <h2 className="text-2xl font-bold text-center text-black py-4">Legal Assistance</h2>
           <p className="text-sm font-bold text-left ms-2 text-gray-700 py-4"><span className="text-red-500">Disclaimer : </span>
@@ -81,7 +100,7 @@ who you have verified.</p>
                                     <td className="p-3 text-gray-800 text-center">{user.email}</td>
                                     <td className="p-3 text-right">
                                         <button onClick={() => setSelectedUser(user)}>
-                                            <PButton title="Profile" />
+                                            <PButton text="Profile" />
                                         </button>
                                     </td>
                                 </tr>
@@ -98,7 +117,7 @@ who you have verified.</p>
                                 <p className="text-gray-600">{user.email}</p>
                                 <div className="mt-2">
                                     <button onClick={() => setSelectedUser(user)}>
-                                        <PButton title="Profile" />
+                                        <PButton text="Profile" />
                                     </button>
                                 </div>
                             </div>

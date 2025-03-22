@@ -172,15 +172,16 @@ const Signin = () => {
                 {success && <p className="text-green-500 text-m text-center pt-4">{success}</p>}
               </div>
               <div className="flex items-center justify-between mt-4">
-                <span className="w-1/5 border-b dark:border-gray-600 md:w-1/4"/>
-                <a
-                    className="text-xs text-gray-500 uppercase font-bold dark:text-gray-800 cursor-pointer hover:underline"
-                    onClick={() => navigate("/signup")}
-                >
-                  Don't Have an account? Signup
-                </a>
-                <span className="w-1/5 border-b dark:border-gray-600 md:w-1/4"/>
-              </div>
+    <span className="w-1/5 border-b dark:border-gray-600 md:w-1/4" />
+    <button
+        className="py-2 px-4 bg-[#003505] hover:bg-green-800 text-white w-full rounded-lg font-semibold"
+        onClick={() => navigate("/signup")}
+    >
+        Don't Have an account? Signup
+    </button>
+    <span className="w-1/5 border-b dark:border-gray-600 md:w-1/4" />
+</div>
+
             </div>
           </div>
         </div>

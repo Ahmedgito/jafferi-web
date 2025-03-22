@@ -4,12 +4,14 @@ import ContactForm from "../../components/uicomponents/VForm.jsx";
 import { useSelector } from "react-redux";
 import axios from "axios";
 import Loader from "../../components/uicomponents/Bloodline.jsx";
+import { useNavigate } from "react-router-dom";
 
 const VirtualClinic = () => {
     const [selectedUser, setSelectedUser] = useState(null);
     const [users, setUsers] = useState([]); // Fix: default state as empty array
     const [loading, setLoading] = useState(true);
 
+  const navigate = useNavigate();
     const { token } = useSelector((state) => state.auth);
     const apiUrl = import.meta.env.VITE_API_URL;
 
@@ -50,6 +52,18 @@ const VirtualClinic = () => {
 
             {/* Main Container */}
             <div className="w-full flex justify-center py-20 px-4">
+            <div className="fixed inset-0 bg-transparent bg-opacity-50 backdrop-blur-sm flex items-center justify-center z-50">
+        <div className="bg-white p-6 rounded-lg shadow-lg text-center max-w-sm">
+          <h2 className="text-xl font-bold text-[#003505]">Coming Soon</h2>
+          <p className="text-gray-600 mt-2">This section is under development.</p>
+          <button
+            onClick={() => navigate("/")}
+            className="mt-4 px-4 py-2 bg-[#003505] text-white rounded-lg hover:bg-green-700 cursor-pointer"
+          >
+            Go Back Home
+          </button>
+        </div>
+      </div>
                 <div className="w-full max-w-4xl bg-white rounded-lg shadow-lg overflow-hidden border-2 border-[#003505]">
                 <div className="flex flex-col items-center justify-center gap-2 mb-6">
       <h2 className="text-4xl font-extrabold text-[#003505] tracking-wide uppercase drop-shadow-md flex items-center gap-2">
@@ -87,7 +101,7 @@ const VirtualClinic = () => {
                                             <td className="p-3 text-gray-800 text-center">{user.email}</td>
                                             <td className="p-3 text-right">
                                                 <button onClick={() => setSelectedUser(user)}>
-                                                    <PButton title="Profile" />
+                                                    <PButton text="Profile" />
                                                 </button>
                                             </td>
                                         </tr>
@@ -104,7 +118,7 @@ const VirtualClinic = () => {
                                         <p className="text-gray-600">{user.email}</p>
                                         <div className="mt-2">
                                             <button onClick={() => setSelectedUser(user)}>
-                                                <PButton title="Profile" />
+                                                <PButton text="Profile" />
                                             </button>
                                         </div>
                                     </div>

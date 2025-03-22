@@ -2,15 +2,62 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link href="src/index.css" rel="stylesheet" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Jaferi Alliance</title>
+    
+    <title>Jaferi Alliance - Professional Networking & Collaboration</title>
+    
+    <meta name="description" content="Join Jaferi Alliance, the ultimate networking platform for professionals. Connect, collaborate, and grow your career with top industry experts." />
+    <meta name="keywords" content="Jaferi Alliance, networking, professional connections, career growth, business collaboration" />
+    <meta name="author" content="Jaferi Alliance" />
+    
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/public/favicon.ico" />
+  <link rel="shortcut icon" href="/public/favicon.ico" />
+    <link rel="canonical" href="https://www.jaferialliance.com/" />
+    
+    <!-- Open Graph (Facebook & LinkedIn) -->
+    <meta property="og:title" content="Jaferi Alliance - Connect & Grow" />
+    <meta property="og:description" content="Join Jaferi Alliance and connect with professionals worldwide. Build your network and unlock new opportunities!" />
+    <meta property="og:image" content="https://www.jaferialliance.com/og-image.jpg" />
+    <meta property="og:url" content="https://www.jaferialliance.com/" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Jaferi Alliance - Professional Networking" />
+    <meta name="twitter:description" content="Expand your professional network with Jaferi Alliance. Connect, collaborate, and grow together!" />
+    <meta name="twitter:image" content="https://www.jaferialliance.com/twitter-image.jpg" />
+
+    <!-- Preload Fonts for Performance -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" as="style" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Styles -->
+    <link href="src/index.css" rel="stylesheet" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon.ico" />
+
+    <!-- Structured Data (JSON-LD for SEO) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Jaferi Alliance",
+      "url": "https://www.jaferialliance.com/",
+      "logo": "https://www.jaferialliance.com/logo.png",
+      "description": "Jaferi Alliance is a professional networking platform for individuals looking to grow their careers and businesses.",
+      "sameAs": [
+        "https://www.facebook.com/jaferialliance",
+        "https://www.linkedin.com/company/jaferialliance",
+        "https://twitter.com/jaferialliance"
+      ]
+    }
+    </script>
   </head>
+  
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
-  </body>
+  </body>
 </html>
