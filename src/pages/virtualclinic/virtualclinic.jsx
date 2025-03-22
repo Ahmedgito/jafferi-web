@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import axios from "axios";
 import Loader from "../../components/uicomponents/Bloodline.jsx";
 import { useNavigate } from "react-router-dom";
+import NLoader from "../../components/uicomponents/Loader.jsx"
 
 const VirtualClinic = () => {
     const [selectedUser, setSelectedUser] = useState(null);
@@ -54,7 +55,8 @@ const VirtualClinic = () => {
             <div className="w-full flex justify-center py-20 px-4">
             <div className="fixed inset-0 bg-transparent bg-opacity-50 backdrop-blur-sm flex items-center justify-center z-50">
         <div className="bg-white p-6 rounded-lg shadow-lg text-center max-w-sm">
-          <h2 className="text-xl font-bold text-[#003505]">Coming Soon</h2>
+          <NLoader/>
+          <h2 className="text-xl font-bold text-gray-800">Coming Soon</h2>
           <p className="text-gray-600 mt-2">This section is under development.</p>
           <button
             onClick={() => navigate("/")}

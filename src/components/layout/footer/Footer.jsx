@@ -38,7 +38,7 @@ const Footer = () => {
             </li>
             <li className="flex items-start gap-2">
               <MapPin size={20} className="" /> 
-              33 Street Saadi Town, near Malir cantt
+              33 Street Saadi Town
             </li>
           </ul>
         </div>

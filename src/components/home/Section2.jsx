@@ -17,11 +17,11 @@ const Section2 = () => {
         </span>
       </h2>
     </div>
-                <p className="text-center text-gray-600 mb-8 max-w-2xl mx-auto">
-                Accessible Healthcare for the Jaferia Community
+                <p className="text-center md:text2xl text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+                Coming Soon.
                 </p>
  
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-center place-items-center">
+            <div className="grid blur-sm grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-center place-items-center">
             <Card
   heading="Joen Doe"
   paragraph="Discover the beauty of the outdoors with stunning landscapes and adventures."
