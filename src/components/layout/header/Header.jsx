@@ -36,7 +36,7 @@ const Header = () => {
   };
 
   let availableRoutes = [];
-  if (role === "helper") {
+  if (role === "helper" || role === "admin") {
     availableRoutes = allPages;
   } else if (role === "seeker" && industry) {
     availableRoutes = allowedPages[industry] || [];
