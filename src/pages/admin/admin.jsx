@@ -244,6 +244,7 @@ const Admin = () => {
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
                         />
+                        
                         <div className="bg-white shadow rounded overflow-x-auto">
                             <table className="min-w-full table-auto">
                                 <thead>{renderTableHeaders()}</thead>

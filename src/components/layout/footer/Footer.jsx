@@ -2,6 +2,7 @@ import "../footer/Footer.css";
 import { MapPin, Phone, Mail } from "lucide-react"; // Import icons
 import logo from "../../../assets/logo.png";
 
+
 const Footer = () => {
   return (
     <footer className="footer h-96 bg-gray-900 text-white py-10">
@@ -36,10 +37,7 @@ const Footer = () => {
               <Mail size={20} className="" /> 
               jaferialliance@gmail.com
             </li>
-            <li className="flex items-start gap-2">
-              <MapPin size={20} className="" /> 
-              33 Street Saadi Town
-            </li>
+          
           </ul>
         </div>
       </div>
