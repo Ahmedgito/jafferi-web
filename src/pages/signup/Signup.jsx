@@ -24,6 +24,17 @@ const Form = () => {
   const validateForm = () => {
     let newErrors = {};
     if (!formData.name.trim()) newErrors.name = "Full name is required";
+
+     // Password validation
+     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
+     if (!formData.password.trim()) {
+       newErrors.password = "Password is required";
+     } else if (!passwordRegex.test(formData.password)) {
+       newErrors.password =
+         "Password must be at least 8 characters long, include one uppercase letter, one lowercase letter, one number, and one special character.";
+     }
+     
+
     if (!formData.email.trim()) newErrors.email = "Email is required";
     if (!formData.password.trim()) newErrors.password = "Password is required";
     if (!formData.PhoneNumber.trim()) newErrors.PhoneNumber = "Phone number is required";
@@ -33,6 +44,9 @@ const Form = () => {
     return Object.keys(newErrors).length === 0;
   };
 
+
+  
+
   const handleChange = (e) => {
     const { id, value } = e.target;
     setFormData({ ...formData, [id]: value });
@@ -41,6 +55,7 @@ const Form = () => {
       setErrors({ ...errors, [id]: "" });
     }
   };
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -184,47 +199,41 @@ const Form = () => {
                       onChange={handleChange}
                       required
                   >
-                    <option selected disabled>Select An Option</option>
+                    <option value="">Select An Option</option>
                     <option value="Yes">Yes</option>
                     <option value="No">No</option>
-                    <option value="Student">Student</option>
                   </select>
                   {errors.mentorship && (
                       <p className="text-red-500 text-xs mt-1">{errors.mentorship}</p>
                   )}
                 </div>
-
-                {/* Password Field with Eye Icon */}
+ {/* Password Field */}
                 <div>
-                  <label
-                      className="font-semibold text-sm text-gray-600 pb-1 block"
-                      htmlFor="password"
-                  >
+                  <label className="font-semibold text-sm text-gray-600 pb-1 block" htmlFor="password">
                     Password <span className="text-red-500">*</span>
                   </label>
                   <div className="relative">
                     <input
-                        className={`border rounded-lg px-3 py-2 mt-1 mb-2 text-sm w-full pr-10 focus:border-green-500 focus:ring-2 focus:ring-green-500 ${
-                            errors.password ? "border-red-500" : ""
-                        }`}
-                        type={showPassword ? "text" : "password"}
-                        id="password"
-                        value={formData.password}
-                        onChange={handleChange}
-                        required
+                      className="border rounded-lg px-3 py-2 mt-1 mb-2 text-sm w-full pr-10 focus:border-green-500 focus:ring-2 focus:ring-green-500"
+                      type="password"
+                      id="password"
+                      value={formData.password}
+                      onChange={handleChange}
                     />
                     <button
-                        type="button"
-                        className="absolute right-3 top-3 text-gray-600"
-                        onClick={() => setShowPassword(!showPassword)}
+                      type="button"
+                      className="absolute right-3 top-3 text-gray-600"
+                      onClick={() => {
+                        const passwordInput = document.getElementById('password');
+                        passwordInput.type = passwordInput.type === 'password' ? 'text' : 'password';
+                      }}
                     >
-                      {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+                      <Eye size={20} />
                     </button>
                   </div>
-                  {errors.password && (
-                      <p className="text-red-500 text-xs mt-1">{errors.password}</p>
-                  )}
+                  {errors.password && <p className="text-red-500 text-xs">{errors.password}</p>}
                 </div>
+
               </div>
 
               {/* Additional Fields */}
@@ -266,7 +275,7 @@ const Form = () => {
                       onChange={handleChange}
                       required
                   >
-                    <option selected disabled>Select An Option</option>
+                    <option value="">-- Select Category --</option>
                     <option value="Agriculture, Environment & Sustainability">
                       Agriculture, Environment & Sustainability
                     </option>

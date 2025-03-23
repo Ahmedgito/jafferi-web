@@ -33,8 +33,8 @@ const Admin = () => {
         if (activeTab === "helpers") fetchData("/info/get-all-users?role=helper");
         else if (activeTab === "seekers") fetchData("/info/get-all-users?role=seeker");
         else if (activeTab === "contactForms") fetchData("/contact/get-contact-form");
-        else if (activeTab === "businesses") fetchData("/admin/get-all-business-network");
-        else if (activeTab === "pendingBusinesses") fetchData("/admin/get-business-network?status_all=pending");
+        else if (activeTab === "Ads") fetchData("/admin/get-all-business-network");
+        else if (activeTab === "Pending-Ads") fetchData("/admin/get-business-network?status_all=pending");
         else if (activeTab === "businessGroups") fetchData("/admin/get-all-business-group");
         else if (activeTab === "pendingBusinessGroups") fetchData("/admin/get-business-group?status_all=0");
         else setData([]);
@@ -43,7 +43,7 @@ const Admin = () => {
     const filteredData = data.filter((item) => {
         const text = activeTab === "contactForms"
             ? `${item.first_name} ${item.last_name} ${item.email} ${item.phone_number} ${item.message}`
-            : (["businesses", "pendingBusinesses", "businessGroups", "pendingBusinessGroups"].includes(activeTab))
+            : (["Ads", "Pending-Ads", "businessGroups", "pendingBusinessGroups"].includes(activeTab))
                 ? `${item.title} ${item.category} ${item.status} ${item.contact_email} ${item.location}`
                 : `${item.name} ${item.email} ${item.role}`;
         return text.toLowerCase().includes(searchTerm.toLowerCase());
@@ -62,7 +62,7 @@ const Admin = () => {
             2: { text: "Rejected", color: "bg-red-100 text-red-800 border border-red-400", icon: "❌" }
         };
     
-        const statusData = type === "businesses" ? statusMapping[status] : integerStatusMapping[status];
+        const statusData = type === "Ads" ? statusMapping[status] : integerStatusMapping[status];
     
         return (
             <span className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium ${statusData?.color || "bg-gray-100 text-gray-800 border border-gray-400"}`}>
@@ -93,7 +93,7 @@ const Admin = () => {
     const handleDelete = async (id, type) => {
         let rejectEndpoint = "";
 
-        if (type === "businesses") {
+        if (type === "Ads") {
             rejectEndpoint = "/admin/delete-ads";
         } else if (type === "businessGroups") {
             rejectEndpoint = "/admin/delete-business";
@@ -115,15 +115,15 @@ const Admin = () => {
                     <th className="py-3 px-4">Phone</th>
                     <th className="py-3 px-4">Message</th>
                 </>
-            ) : (activeTab === "businesses" || activeTab === "pendingBusinesses") ? (
+            ) : (activeTab === "Ads" || activeTab === "Pending-Ads") ? (
                 <>
                     <th className="py-3 px-4">Title</th>
                     <th className="py-3 px-4">Category</th>
                     <th className="py-3 px-4">Contact Email</th>
                     <th className="py-3 px-4">Location</th>
                     <th className="py-3 px-4">Status</th>
-                    {activeTab === "pendingBusinesses" && <th className="py-3 px-4">Action</th>}
-                    {activeTab === "businesses" && <th className="py-3 px-4">Action</th>}
+                    {activeTab === "Pending-Ads" && <th className="py-3 px-4">Action</th>}
+                    {activeTab === "Ads" && <th className="py-3 px-4">Action</th>}
                 </>
             ):
                 (activeTab === "businessGroups" || activeTab === "pendingBusinessGroups") ? (
@@ -160,22 +160,22 @@ const Admin = () => {
                         <td>{item.phone_number}</td>
                         <td>{item.message}</td>
                     </>
-                ) : (activeTab === "businesses" || activeTab === "pendingBusinesses") ? (
+                ) : (activeTab === "Ads" || activeTab === "Pending-Ads") ? (
                     <>
                         <td>{item.title}</td>
                         <td>{item.category}</td>
                         <td>{item.contact_email}</td>
                         <td>{item.location}</td>
-                        <td>{renderStatusBadge(item.status, 'businesses')}</td>
-                        {activeTab === "businesses" && (
+                        <td>{renderStatusBadge(item.status, 'Ads')}</td>
+                        {activeTab === "Ads" && (
                             <td>
-                                <button onClick={() => handleDelete(item.id,'businesses')} className="bg-red-500 text-white px-3 py-1 rounded">Delete</button>
+                                <button onClick={() => handleDelete(item.id,'Ads')} className="bg-red-500 text-white px-3 py-1 rounded">Delete</button>
                             </td>
                         )}
-                        {activeTab === "pendingBusinesses" && (
+                        {activeTab === "Pending-Ads" && (
                             <td className="space-x-2">
-                                <button onClick={() => handleApprove(item.id,'businesses')} className="bg-green-500 text-white px-3 py-1 rounded">Approve</button>
-                                <button onClick={() => handleReject(item.id, 'businesses')} className="bg-red-500 text-white px-3 py-1 rounded">Reject</button>
+                                <button onClick={() => handleApprove(item.id,'Ads')} className="bg-green-500 text-white px-3 py-1 rounded">Approve</button>
+                                <button onClick={() => handleReject(item.id, 'Ads')} className="bg-red-500 text-white px-3 py-1 rounded">Reject</button>
                             </td>
                         )}
                     </>
@@ -218,7 +218,7 @@ const Admin = () => {
             <div className="w-64 bg-white shadow">
                 <div className="p-4 font-bold text-xl border-b">Admin Panel</div>
                 <ul className="space-y-2 p-4">
-                    {["dashboard", "helpers", "seekers", "contactForms", "businesses", "pendingBusinesses", 'businessGroups', 'pendingBusinessGroups'].map(tab => (
+                    {["dashboard", "helpers", "seekers", "contactForms", "Ads", "Pending-Ads", 'businessGroups', 'pendingBusinessGroups'].map(tab => (
                         <li key={tab}>
                             <button
                                 className={`w-full text-left px-4 py-2 rounded ${activeTab === tab ? "bg-[#003505] text-white" : "text-gray-700 hover:bg-gray-200"}`}

@@ -119,7 +119,7 @@ const Header = () => {
             </button>
             <div className={`ml-4 transition-all overflow-hidden ${isMobileDropdownOpen ? "max-h-40 opacity-100" : "max-h-0 opacity-0"} duration-300`}>
               <Link to="/businessnetwork" className="block text-white py-2 transition hover:text-gray-300" onClick={toggleMobileMenu}>Ads and Services</Link>
-              <Link to="/ads-services" className="block text-white py-2 transition hover:text-gray-300" onClick={toggleMobileMenu}>Business Directory</Link>
+              <Link to="/business" className="block text-white py-2 transition hover:text-gray-300" onClick={toggleMobileMenu}>Business Directory</Link>
             </div>
           </div>
         )}
