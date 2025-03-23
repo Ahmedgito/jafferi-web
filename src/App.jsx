@@ -51,7 +51,7 @@ function App() {
           <Route path="/signin" element={<PublicRoute><Signin /></PublicRoute>} />
           <Route path="/contact" element={<Contact />} />
 
-          <Route path="/dashboard" element={<PrivateRoute > <Admin /> </PrivateRoute>} />
+          <Route path="/dashboard" element={<PrivateRoute allowedRoles={['admin']}> <Admin /> </PrivateRoute>} />
           {/* Redirect unknown routes to Home */}
           <Route path="*" element={<Navigate to="/" />} />
 
