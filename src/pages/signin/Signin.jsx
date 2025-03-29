@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { loginFailure, loginStart, loginSuccess } from "../../store/slices/authSlices";
 import axios from "axios";
 import LoginGoogle from "../../components/Google-Auth/login-google";
+import { Link } from "react-router-dom";
 
 const Signin = () => {
   const [email, setEmail] = useState('');
@@ -156,9 +157,9 @@ const Signin = () => {
                   </div>
 
                   <div className="text-right mb-4">
-                    <a className="text-xs font-semibold text-gray-500 hover:text-gray-600 cursor-pointer" href="#">
+                    <Link className="text-xs font-semibold text-gray-500 hover:text-gray-600 cursor-pointer" to="/forgot-password">
                       Forgot Password?
-                    </a>
+                    </Link>
                   </div>
                   <LoginGoogle handleSuccess={handleSuccess}/>  
                   <button

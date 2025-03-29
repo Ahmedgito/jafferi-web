@@ -15,6 +15,8 @@ import PrivateRoute from './routes/PrivateRoute.jsx';
 import PublicRoute from "./routes/PublicRoute.jsx";
 import { Provider } from "react-redux";
 import { store } from "./store/store";
+import ForgotPassword from "./pages/forgot-password/ForgotPassword.jsx";
+import ResetPassword from "./pages/forgot-password/ResetPassword.jsx";
 
 
 const requiredIndustries = {
@@ -49,6 +51,9 @@ function App() {
           <Route path="/signup" element={<PublicRoute><Signup /></PublicRoute>} />
           <Route path="/business-signup" element={<PublicRoute><BusinessSignup/></PublicRoute>} />
           <Route path="/signin" element={<PublicRoute><Signin /></PublicRoute>} />
+          <Route path="/forgot-password" element={<PublicRoute><ForgotPassword /></PublicRoute>} />
+          <Route path="/reset-password" element={<PublicRoute><ResetPassword /></PublicRoute>} />
+
           <Route path="/contact" element={<Contact />} />
 
           <Route path="/dashboard" element={<PrivateRoute allowedRoles={['admin']}> <Admin /> </PrivateRoute>} />
