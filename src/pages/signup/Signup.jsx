@@ -74,7 +74,7 @@ const Form = () => {
           navigate("/signin");
         }, 2000); // Redirect after 2 seconds
       } else {
-        throw new Error(response.data.error_message || "Something went wrong");
+        throw new Error(response.data.error_message || "Something went wrong ");
       }
     } catch (error) {
       console.error("Error:", error);
