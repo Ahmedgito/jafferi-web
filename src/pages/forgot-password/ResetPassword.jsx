@@ -16,9 +16,9 @@ const ResetPassword = () => {
 
 
         console.log("Reset Token:", token);
-        // if (!token) {
-        //     navigate("/");
-        // }
+        if (!token) {
+            navigate("/");
+        }
     }, [token, navigate]);
 
     const validateForm = () => {
