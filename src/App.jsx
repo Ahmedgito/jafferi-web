@@ -52,7 +52,7 @@ function App() {
           <Route path="/business-signup" element={<PublicRoute><BusinessSignup/></PublicRoute>} />
           <Route path="/signin" element={<PublicRoute><Signin /></PublicRoute>} />
           <Route path="/forgot-password" element={<PublicRoute><ForgotPassword /></PublicRoute>} />
-          <Route path="/reset-password" element={<PublicRoute><ResetPassword /></PublicRoute>} />
+          <Route path="/reset-password/:token" element={<ResetPassword />} />
 
           <Route path="/contact" element={<Contact />} />
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
 const ResetPassword = () => {
@@ -10,11 +10,12 @@ const ResetPassword = () => {
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
     const apiUrl = import.meta.env.VITE_API_URL;
-    const [searchParams] = useSearchParams();
-    const token = searchParams.get("token");
+    const { token } = useParams();
 
     useEffect(() => {
-        console.log(token)
+
+
+        console.log("Reset Token:", token);
         // if (!token) {
         //     navigate("/");
         // }
