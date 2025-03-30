@@ -21,17 +21,11 @@ const ResetPassword = () => {
     }, [token, navigate]);
 
     const validateForm = () => {
-        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
-
         if (!newPassword || newPassword.length < 6) {
             setError("Password must be at least 6 characters long");
             return false;
         }
 
-        if (!passwordRegex.test(newPassword)) {
-            setError("Password must include at least one uppercase letter, one lowercase letter, one number, and one special character");
-            return false;
-        }
 
         if (newPassword !== confirmPassword) {
             setError("Passwords do not match");
