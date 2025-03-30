@@ -14,9 +14,10 @@ const ResetPassword = () => {
     const token = searchParams.get("token");
 
     useEffect(() => {
-        if (!token) {
-            navigate("/");
-        }
+        console.log(token)
+        // if (!token) {
+        //     navigate("/");
+        // }
     }, [token, navigate]);
 
     const validateForm = () => {
